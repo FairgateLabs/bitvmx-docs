@@ -1,0 +1,209 @@
+site_name: BitVMX Documentation
+site_url: https://bitvmx.org
+site_description: Comprehensive documentation for BitVMX - A CPU for Universal Computation on Bitcoin
+site_author: BitVMX Team
+repo_name: FairgateLabs/BitVMX
+repo_url: https://github.com/FairgateLabs
+edit_uri: ""
+
+theme:
+  name: material
+  language: en
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+    - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.path
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/cpu-64-bit
+
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - mermaid2:
+      version: 10.6.0
+
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/FairgateLabs
+      name: BitVMX on GitHub
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/+HnlusWvtyyY4YjEx
+      name: BitVMX Telegram
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/bitvmx
+      name: BitVMX on Twitter
+  generator: false
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+
+  - Getting Started:
+    - getting-started/index.md
+    - Prerequisites: getting-started/prerequisites.md
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quick-start.md
+
+  - Core Concepts:
+    - core-concepts/index.md
+    - What is BitVMX: core-concepts/what-is-bitvmx.md
+    - Architecture: core-concepts/architecture.md
+    - Challenge-Response Protocol: core-concepts/challenge-response.md
+    - Hash Chain System: core-concepts/hash-chains.md
+    - RISC-V Implementation: core-concepts/risc-v.md
+    - Security Model: core-concepts/security-model.md
+
+  - Union Bridge:
+    - union-bridge/index.md
+    - Introduction: union-bridge/introduction.md
+    - Peg-In Flow: union-bridge/pegin-flow.md
+    - Peg-Out Flow: union-bridge/pegout-flow.md
+    - Protocols: union-bridge/protocols.md
+    - Smart Contracts: union-bridge/smart-contracts.md
+    - Packet Architecture: union-bridge/packet-architecture.md
+
+  - Components:
+    - components/index.md
+    - BitVMX Client: components/bitvmx-client.md
+    - BitVMX CPU: components/bitvmx-cpu.md
+    - Protocol Builder: components/protocol-builder.md
+    - Key Manager: components/key-manager.md
+    - Wallet: components/wallet.md
+    - Broker: components/broker.md
+    - ZK Proofs: components/zk-proofs.md
+    - Bitcoin Coordinator: components/coordinator.md
+    - Blockchain Indexer: components/indexer.md
+    - Transaction Monitor: components/transaction-monitor.md
+    - Storage Backend: components/storage.md
+
+  - Developer Guide:
+    - developer-guide/index.md
+    - Workspace Setup: developer-guide/workspace-setup.md
+    - Building Protocols: developer-guide/building-protocols.md
+    - API Usage: developer-guide/api-usage.md
+    - Testing: developer-guide/testing.md
+    - Docker: developer-guide/docker.md
+    - Troubleshooting: developer-guide/troubleshooting.md
+
+  - API Reference:
+    - api-reference/index.md
+    - API Messages: api-reference/messages.md
+    - Client API: api-reference/client-api.md
+    - Protocol Builder API: api-reference/protocol-builder-api.md
+    - Key Manager API: api-reference/key-manager-api.md
+
+  - Tutorials:
+    - tutorials/index.md
+    - Your First Protocol: tutorials/first-protocol.md
+    - Payment Channels: tutorials/payment-channels.md
+    - Bridge Operation: tutorials/bridge-operation.md
+    - Running Examples: tutorials/running-examples.md
+
+  - Technical Reference:
+    - technical-reference/index.md
+    - Glossary: technical-reference/glossary.md
+    - BitVMX vs BitVM: technical-reference/comparison-bitvm.md
+    - Latest Innovations: technical-reference/innovations.md
+    - ESSPI: technical-reference/esspi.md
+    - Specifications: technical-reference/specifications.md
+
+  - Contributing:
+    - contributing/index.md
+    - Code Style: contributing/code-style.md
+    - Documentation Guidelines: contributing/documentation.md
+    - Testing Standards: contributing/testing-guidelines.md
+
+  - Resources:
+    - resources/index.md
+    - Academic Papers: resources/papers.md
+    - Articles & Blog Posts: resources/articles.md
+    - Videos: resources/videos.md
+    - External Links: resources/links.md
+
+copyright: Copyright &copy; 2024-2025 BitVMX Team
