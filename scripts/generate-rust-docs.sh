@@ -218,7 +218,7 @@ cat > "$DOCS_DIR/index.html" <<'EOF'
         }
 
         .header {
-            background: #ff6f00;
+            background: #1a79fe;
             color: white;
             padding: 2rem 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -249,7 +249,7 @@ cat > "$DOCS_DIR/index.html" <<'EOF'
         .back-link {
             display: inline-block;
             margin-bottom: 2rem;
-            color: #ff6f00;
+            color: #1a79fe;
             text-decoration: none;
             font-weight: 500;
             font-size: 1rem;
@@ -284,7 +284,7 @@ cat > "$DOCS_DIR/index.html" <<'EOF'
         }
 
         .crate-card a {
-            color: #ff6f00;
+            color: #1a79fe;
             text-decoration: none;
             font-weight: 600;
         }
