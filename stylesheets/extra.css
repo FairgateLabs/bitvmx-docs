@@ -1,9 +1,19 @@
 /* Custom CSS for BitVMX Documentation */
 
 :root {
-  --md-primary-fg-color: #ff6f00;
-  --md-primary-fg-color--light: #ff8f00;
-  --md-primary-fg-color--dark: #e65100;
+  --md-primary-fg-color: #1a79fe;
+  --md-primary-fg-color--light: #4a9ffe;
+  --md-primary-fg-color--dark: #0066d9;
+  --md-accent-fg-color: #1a79fe;
+  --md-accent-fg-color--transparent: rgba(26, 121, 254, 0.1);
+}
+
+/* Dark mode color overrides */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #4a9ffe;
+  --md-primary-fg-color--light: #6ab0ff;
+  --md-primary-fg-color--dark: #1a79fe;
+  --md-accent-fg-color: #4a9ffe;
 }
 
 /* Add any custom styles here */
