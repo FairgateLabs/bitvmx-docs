@@ -3,7 +3,7 @@ site_url: https://bitvmx.org
 site_description: Comprehensive documentation for BitVMX - A CPU for Universal Computation on Bitcoin
 site_author: BitVMX Team
 repo_name: FairgateLabs/BitVMX
-repo_url: https://github.com/FairgateLabs
+repo_url: https://github.com/FairgateLabs/bitvmx-docs
 edit_uri: ""
 
 theme:
