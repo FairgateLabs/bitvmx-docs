@@ -44,6 +44,96 @@ mkdocs build
 
 The built site will be in the `site/` directory.
 
+### Rust API Documentation
+
+The documentation includes Rust API reference docs generated from the BitVMX codebase.
+
+#### Prerequisites
+
+- Rust toolchain (install from [rustup.rs](https://rustup.rs/))
+- Access to the `rust-bitvmx-workspace` directory
+  - Default location: `../rust-bitvmx-workspace` (sibling to this repo)
+  - Or use `--path` flag to specify a custom location
+
+#### Generating Rust Docs
+
+Generate Rust API documentation for all crates:
+
+```bash
+# Use default path (looks for rust-bitvmx-workspace in parent directory)
+./scripts/generate-rust-docs.sh
+
+# Or specify a custom path
+./scripts/generate-rust-docs.sh --path /path/to/rust-bitvmx-workspace
+```
+
+**Directory Structure:**
+
+By default, the script expects this directory structure:
+```
+parent-dir/
+├── bitvmx-docs/          # This repository
+└── rust-bitvmx-workspace/ # Rust workspace (sibling directory)
+```
+
+If your workspace is in a different location, use the `--path` flag.
+
+**What the script does:**
+1. Generate `cargo doc` for all 10 public-facing crates
+2. Combine them into `docs_rust/` directory
+3. Create a unified index page
+
+The generated docs are automatically copied into the MkDocs site during build.
+
+#### Local Development with Rust API Docs
+
+1. Generate Rust docs first:
+   ```bash
+   ./scripts/generate-rust-docs.sh
+   ```
+
+2. Start MkDocs development server:
+   ```bash
+   mkdocs serve
+   ```
+
+3. View documentation at:
+   - Main docs: [http://localhost:8000](http://localhost:8000)
+   - Rust API: [http://localhost:8000/rust-api/](http://localhost:8000/rust-api/)
+
+#### Updating Rust API Docs
+
+After making changes to Rust code:
+
+```bash
+./scripts/generate-rust-docs.sh
+```
+
+MkDocs will auto-reload if `mkdocs serve` is running.
+
+#### Deploying to GitHub Pages
+
+To deploy the documentation (including Rust API docs) to GitHub Pages:
+
+```bash
+# 1. Generate Rust docs
+./scripts/generate-rust-docs.sh
+
+# 2. Build and deploy
+mkdocs gh-deploy --force
+```
+
+#### Troubleshooting
+
+**Issue:** Rust docs not showing up
+**Solution:** Run `./scripts/generate-rust-docs.sh` first
+
+**Issue:** Compilation errors in specific crates
+**Solution:** Check the crate compiles: `cd ../rust-bitvmx-workspace/<crate> && cargo check`
+
+**Issue:** Styling looks wrong
+**Solution:** Clear browser cache and rebuild: `mkdocs build --clean`
+
 ## Documentation Structure
 
 ```

@@ -26,6 +26,9 @@ wheels/
 site/
 .cache/
 
+# Rust documentation (generated)
+docs_rust/
+
 # IDE
 .vscode/
 .idea/

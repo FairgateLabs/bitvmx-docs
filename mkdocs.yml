@@ -57,6 +57,9 @@ theme:
     repo: fontawesome/brands/github
     logo: material/cpu-64-bit
 
+hooks:
+  - hooks/copy_rust_docs.py
+
 plugins:
   - search:
       separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
@@ -120,6 +123,7 @@ extra:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/rustdoc-theme.css
 
 nav:
   - Home: index.md
@@ -177,6 +181,13 @@ nav:
     - Client API: api-reference/client-api.md
     - Protocol Builder API: api-reference/protocol-builder-api.md
     - Key Manager API: api-reference/key-manager-api.md
+    - Storage Backend API: api-reference/storage-api.md
+    - Broker API: api-reference/broker-api.md
+    - Coordinator API: api-reference/coordinator-api.md
+    - Indexer API: api-reference/indexer-api.md
+    - Transaction Monitor API: api-reference/transaction-monitor-api.md
+    - Wallet API: api-reference/wallet-api.md
+    - Settings API: api-reference/settings-api.md
 
   - Tutorials:
     - tutorials/index.md
