@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["ASSET_TX","DUST","GID_TX","MIN_RELAY_FEE","OPERATOR_WON_TX","TOO_TX"],"fn":["gid_tx","op_gid","op_won","operator_won_tx_name","pub_too_group","too_tx"],"struct":["TransferProtocol"]};

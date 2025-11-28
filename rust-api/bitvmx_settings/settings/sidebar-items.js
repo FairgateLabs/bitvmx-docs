@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["load","load_and_check_args","load_config_file"],"struct":["ConfigurationFile"]};

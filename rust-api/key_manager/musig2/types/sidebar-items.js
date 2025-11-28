@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"type":["MessageId","Musig2MessageData","Musig2SessionData"]};

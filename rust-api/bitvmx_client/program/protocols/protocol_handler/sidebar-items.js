@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ProtocolType"],"fn":["external_fund_tx","new_protocol_type"],"struct":["ProtocolContext"],"trait":["ProtocolHandler"]};

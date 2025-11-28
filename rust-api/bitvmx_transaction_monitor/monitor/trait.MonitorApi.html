@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `MonitorApi` trait in crate `bitvmx_transaction_monitor`."><title>MonitorApi in bitvmx_transaction_monitor::monitor - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../static.files/rustdoc-46132b98.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="bitvmx_transaction_monitor" data-themes="" data-resource-suffix="" data-rustdoc-version="1.85.1 (4eb161250 2025-03-15)" data-channel="1.85.1" data-search-js="search-75f5ac3e.js" data-settings-js="settings-0f613d39.js" ><script src="../../static.files/storage-59e33391.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-044be391.svg"><!-- Custom styling to integrate rustdoc with BitVMX Material theme -->
+<style>
+    :root {
+        /* Override rustdoc colors to match Material orange theme */
+        --main-background-color: #ffffff;
+        --main-color: rgba(0, 0, 0, 0.87);
+        --link-color: #ff6f00;
+        --code-highlight-kw-color: #8959a8;
+        --code-highlight-kw-2-color: #4271ae;
+        --code-highlight-trait-color: #c97500;
+        --code-highlight-macro-color: #3e999f;
+        --code-highlight-function-color: #4271ae;
+        --code-highlight-string-color: #718c00;
+        --code-highlight-number-color: #ff6f00;
+        --code-highlight-bool-val-color: #c97500;
+        --code-highlight-self-color: #c97500;
+        --code-highlight-lifetime-color: #f5871f;
+        --code-highlight-prelude-ty-color: #c97500;
+        --code-highlight-comment-color: #8e908c;
+        --sidebar-background-color: #fafafa;
+        --sidebar-background-color-hover: #ffe0b2;
+        --border-color: #e0e0e0;
+        --search-result-link-focus-background-color: #fff3e0;
+    }
+
+    /* Dark mode support */
+    [data-theme="dark"],
+    body.dark-mode {
+        --main-background-color: #1e1e1e;
+        --main-color: rgba(255, 255, 255, 0.87);
+        --link-color: #ff8f00;
+        --code-highlight-kw-color: #b388ff;
+        --code-highlight-kw-2-color: #9fa8da;
+        --code-highlight-trait-color: #ffab40;
+        --code-highlight-macro-color: #4db6ac;
+        --code-highlight-function-color: #9fa8da;
+        --code-highlight-string-color: #81c784;
+        --code-highlight-number-color: #ff8f00;
+        --code-highlight-bool-val-color: #ffab40;
+        --code-highlight-self-color: #ffab40;
+        --code-highlight-lifetime-color: #ff8f00;
+        --code-highlight-prelude-ty-color: #ffab40;
+        --code-highlight-comment-color: #9e9e9e;
+        --sidebar-background-color: #252525;
+        --sidebar-background-color-hover: #3d2800;
+        --border-color: #404040;
+        --search-result-link-focus-background-color: #3d2800;
+    }
+
+    /* Make links more prominent with BitVMX orange */
+    a {
+        color: var(--link-color);
+    }
+
+    a:hover {
+        color: var(--link-color);
+        text-decoration: underline;
+    }
+
+    /* Style the top navigation bar */
+    nav.sidebar {
+        border-right: 1px solid var(--border-color);
+    }
+
+    /* Improve code block styling */
+    pre.rust {
+        background-color: var(--main-background-color);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+
+    /* Enhance search results */
+    .search-results a {
+        color: var(--link-color);
+    }
+
+    .search-results a:hover,
+    .search-results a:focus {
+        background-color: var(--search-result-link-focus-background-color);
+    }
+</style>
+
+</head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../bitvmx_transaction_monitor/index.html">bitvmx_<wbr>transaction_<wbr>monitor</a><span class="version">0.0.2</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Monitor<wbr>Api</a></h2><h3><a href="#required-methods">Required Methods</a></h3><ul class="block"><li><a href="#tymethod.ack_news" title="ack_news">ack_news</a></li><li><a href="#tymethod.cancel" title="cancel">cancel</a></li><li><a href="#tymethod.get_confirmation_threshold" title="get_confirmation_threshold">get_confirmation_threshold</a></li><li><a href="#tymethod.get_current_block" title="get_current_block">get_current_block</a></li><li><a href="#tymethod.get_estimated_fee_rate" title="get_estimated_fee_rate">get_estimated_fee_rate</a></li><li><a href="#tymethod.get_monitor_height" title="get_monitor_height">get_monitor_height</a></li><li><a href="#tymethod.get_news" title="get_news">get_news</a></li><li><a href="#tymethod.get_tx_status" title="get_tx_status">get_tx_status</a></li><li><a href="#tymethod.is_ready" title="is_ready">is_ready</a></li><li><a href="#tymethod.monitor" title="monitor">monitor</a></li><li><a href="#tymethod.tick" title="tick">tick</a></li></ul><h3><a href="#implementors">Implementors</a></h3></section><div id="rustdoc-modnav"><h2><a href="index.html">In bitvmx_<wbr>transaction_<wbr>monitor::<wbr>monitor</a></h2></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><span class="rustdoc-breadcrumbs"><a href="../index.html">bitvmx_transaction_monitor</a>::<wbr><a href="index.html">monitor</a></span><h1>Trait <span class="trait">MonitorApi</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#55-170">Source</a> </span></div><pre class="rust item-decl"><code>pub trait MonitorApi {
+    // Required methods
+    fn <a href="#tymethod.is_ready" class="fn">is_ready</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.bool.html">bool</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.tick" class="fn">tick</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_monitor_height" class="fn">get_monitor_height</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;BlockHeight, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_current_block" class="fn">get_current_block</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;FullBlock&gt;, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_confirmation_threshold" class="fn">get_confirmation_threshold</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u32.html">u32</a>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.monitor" class="fn">monitor</a>(&amp;self, data: <a class="enum" href="../types/enum.TypesToMonitor.html" title="enum bitvmx_transaction_monitor::types::TypesToMonitor">TypesToMonitor</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.cancel" class="fn">cancel</a>(&amp;self, data: <a class="enum" href="../types/enum.TypesToMonitor.html" title="enum bitvmx_transaction_monitor::types::TypesToMonitor">TypesToMonitor</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_news" class="fn">get_news</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="../types/enum.MonitorNews.html" title="enum bitvmx_transaction_monitor::types::MonitorNews">MonitorNews</a>&gt;, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.ack_news" class="fn">ack_news</a>(&amp;self, data: <a class="enum" href="../types/enum.AckMonitorNews.html" title="enum bitvmx_transaction_monitor::types::AckMonitorNews">AckMonitorNews</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_tx_status" class="fn">get_tx_status</a>(
+        &amp;self,
+        tx_id: &amp;Txid,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../types/struct.TransactionStatus.html" title="struct bitvmx_transaction_monitor::types::TransactionStatus">TransactionStatus</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_estimated_fee_rate" class="fn">get_estimated_fee_rate</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u64.html">u64</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;;
+}</code></pre><h2 id="required-methods" class="section-header">Required Methods<a href="#required-methods" class="anchor">§</a></h2><div class="methods"><details class="toggle method-toggle" open><summary><section id="tymethod.is_ready" class="method"><a class="src rightside" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#62">Source</a><h4 class="code-header">fn <a href="#tymethod.is_ready" class="fn">is_ready</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.bool.html">bool</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;</h4></section></summary><div class="docblock"><p>Checks if the monitor is ready and fully synced with the blockchain.</p>
+<h5 id="returns"><a class="doc-anchor" href="#returns">§</a>Returns</h5>
+<ul>
+<li><code>Ok(true)</code>: If the monitor is fully synced with the blockchain</li>
+<li><code>Ok(false)</code>: If the monitor is still syncing blocks</li>
+<li><code>Err</code>: If there was an error checking the sync status</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.tick" class="method"><a class="src rightside" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#75">Source</a><h4 class="code-header">fn <a href="#tymethod.tick" class="fn">tick</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;</h4></section></summary><div class="docblock"><p>Processes one tick of the monitor’s operation.</p>
+<p>This method:</p>
+<ul>
+<li>Checks for new blocks and updates the monitor’s state</li>
+<li>Updates confirmation counts for tracked transactions</li>
+<li>Detects new transactions that need to be monitored</li>
+<li>Triggers the indexer to continue syncing if needed</li>
+</ul>
+<h5 id="returns-1"><a class="doc-anchor" href="#returns-1">§</a>Returns</h5>
+<ul>
+<li><code>Ok(())</code>: If the tick completed successfully</li>
+<li><code>Err</code>: If there was an error during processing</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.get_monitor_height" class="method"><a class="src rightside" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#82">Source</a><h4 class="code-header">fn <a href="#tymethod.get_monitor_height" class="fn">get_monitor_height</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;BlockHeight, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;</h4></section></summary><div class="docblock"><p>Gets the current block height that the monitor has processed.</p>
+<h5 id="returns-2"><a class="doc-anchor" href="#returns-2">§</a>Returns</h5>
+<ul>
+<li><code>Ok(BlockHeight)</code>: The height of the last processed block</li>
+<li><code>Err</code>: If there was an error retrieving the height</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.get_current_block" class="method"><a class="src rightside" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#89">Source</a><h4 class="code-header">fn <a href="#tymethod.get_current_block" class="fn">get_current_block</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;FullBlock&gt;, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;</h4></section></summary><div class="docblock"><p>Gets the current block of the monitor.</p>
+<h5 id="returns-3"><a class="doc-anchor" href="#returns-3">§</a>Returns</h5>
+<ul>
+<li><code>Ok(FullBlock)</code>: The current block of the monitor</li>
+<li><code>Err</code>: If there was an error retrieving the block</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.get_confirmation_threshold" class="method"><a class="src rightside" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#99">Source</a><h4 class="code-header">fn <a href="#tymethod.get_confirmation_threshold" class="fn">get_confirmation_threshold</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u32.html">u32</a></h4></section></summary><div class="docblock"><p>Gets the configured confirmation threshold for transactions.</p>
+<p>The confirmation threshold determines when a transaction is considered final.
+A transaction needs this many confirmations (blocks mined on top of its block)
+before the monitor considers it irreversible.</p>
+<h5 id="returns-4"><a class="doc-anchor" href="#returns-4">§</a>Returns</h5>
+<p>The number of confirmations required for finality</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.monitor" class="method"><a class="src rightside" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#113">Source</a><h4 class="code-header">fn <a href="#tymethod.monitor" class="fn">monitor</a>(&amp;self, data: <a class="enum" href="../types/enum.TypesToMonitor.html" title="enum bitvmx_transaction_monitor::types::TypesToMonitor">TypesToMonitor</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;</h4></section></summary><div class="docblock"><p>Starts monitoring transactions based on the provided monitor type.</p>
+<h5 id="arguments"><a class="doc-anchor" href="#arguments">§</a>Arguments</h5>
+<ul>
+<li><code>data</code> - The type of monitoring to perform, which can be:
+<ul>
+<li>Transactions: Monitor multiple transactions</li>
+<li>RskPeginTransaction: Monitor RSK pegin transactions</li>
+<li>SpendingUTXOTransaction: Monitor transactions spending a specific UTXO</li>
+<li>NewBlock: Monitor new blocks</li>
+</ul>
+</li>
+</ul>
+<h5 id="returns-5"><a class="doc-anchor" href="#returns-5">§</a>Returns</h5>
+<ul>
+<li><code>Ok(())</code>: If monitoring was set up successfully</li>
+<li><code>Err</code>: If there was an error setting up monitoring</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.cancel" class="method"><a class="src rightside" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#127">Source</a><h4 class="code-header">fn <a href="#tymethod.cancel" class="fn">cancel</a>(&amp;self, data: <a class="enum" href="../types/enum.TypesToMonitor.html" title="enum bitvmx_transaction_monitor::types::TypesToMonitor">TypesToMonitor</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;</h4></section></summary><div class="docblock"><p>Cancels monitoring for a specific type of monitoring.</p>
+<h5 id="arguments-1"><a class="doc-anchor" href="#arguments-1">§</a>Arguments</h5>
+<ul>
+<li><code>data</code> - The type of monitoring to cancel, which can be:
+<ul>
+<li>Transactions: Monitor multiple transactions</li>
+<li>RskPeginTransaction: Monitor RSK pegin transactions</li>
+<li>SpendingUTXOTransaction: Monitor transactions spending a specific UTXO</li>
+<li>NewBlock: Monitor new blocks</li>
+</ul>
+</li>
+</ul>
+<h5 id="returns-6"><a class="doc-anchor" href="#returns-6">§</a>Returns</h5>
+<ul>
+<li><code>Ok(())</code>: If monitoring was canceled successfully</li>
+<li><code>Err</code>: If there was an error canceling monitoring</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.get_news" class="method"><a class="src rightside" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#139">Source</a><h4 class="code-header">fn <a href="#tymethod.get_news" class="fn">get_news</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="../types/enum.MonitorNews.html" title="enum bitvmx_transaction_monitor::types::MonitorNews">MonitorNews</a>&gt;, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;</h4></section></summary><div class="docblock"><p>Gets status updates for monitored transactions.</p>
+<p>Returns updates for transactions that have had status changes, such as:</p>
+<ul>
+<li>New confirmations</li>
+<li>Becoming orphaned</li>
+<li>Being included in a block</li>
+</ul>
+<h5 id="returns-7"><a class="doc-anchor" href="#returns-7">§</a>Returns</h5>
+<ul>
+<li><code>Ok(Vec&lt;MonitorNews&gt;)</code>: List of status updates grouped by monitor type</li>
+<li><code>Err</code>: If there was an error retrieving updates</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.ack_news" class="method"><a class="src rightside" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#156">Source</a><h4 class="code-header">fn <a href="#tymethod.ack_news" class="fn">ack_news</a>(&amp;self, data: <a class="enum" href="../types/enum.AckMonitorNews.html" title="enum bitvmx_transaction_monitor::types::AckMonitorNews">AckMonitorNews</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;</h4></section></summary><div class="docblock"><p>Acknowledges that a transaction status update has been processed.</p>
+<p>After processing a status update from get_news(), this method should be called
+to remove it from the pending updates queue.</p>
+<h5 id="arguments-2"><a class="doc-anchor" href="#arguments-2">§</a>Arguments</h5>
+<ul>
+<li><code>data</code> - The type of monitoring to perform, which can be:
+<ul>
+<li>Transactions: Monitor multiple transactions</li>
+<li>RskPeginTransaction: Monitor RSK pegin transactions</li>
+<li>SpendingUTXOTransaction: Monitor transactions spending a specific UTXO</li>
+<li>NewBlock: Monitor new blocks</li>
+</ul>
+</li>
+</ul>
+<h5 id="returns-8"><a class="doc-anchor" href="#returns-8">§</a>Returns</h5>
+<ul>
+<li><code>Ok(())</code>: If the update was successfully acknowledged</li>
+<li><code>Err</code>: If there was an error processing the acknowledgment</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.get_tx_status" class="method"><a class="src rightside" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#167">Source</a><h4 class="code-header">fn <a href="#tymethod.get_tx_status" class="fn">get_tx_status</a>(&amp;self, tx_id: &amp;Txid) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../types/struct.TransactionStatus.html" title="struct bitvmx_transaction_monitor::types::TransactionStatus">TransactionStatus</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;</h4></section></summary><div class="docblock"><p>Gets the current status of a specific transaction.</p>
+<h5 id="arguments-3"><a class="doc-anchor" href="#arguments-3">§</a>Arguments</h5>
+<ul>
+<li><code>tx_id</code> - Hash of the transaction to check</li>
+</ul>
+<h5 id="returns-9"><a class="doc-anchor" href="#returns-9">§</a>Returns</h5>
+<ul>
+<li><code>Ok(TransactionStatus)</code>: Current status of the transaction</li>
+<li><code>Err(MonitorError::TransactionNotFound)</code>: If the transaction is not found</li>
+<li><code>Err</code>: If there was an error retrieving the status</li>
+</ul>
+</div></details><section id="tymethod.get_estimated_fee_rate" class="method"><a class="src rightside" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#169">Source</a><h4 class="code-header">fn <a href="#tymethod.get_estimated_fee_rate" class="fn">get_estimated_fee_rate</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u64.html">u64</a>, <a class="enum" href="../errors/enum.MonitorError.html" title="enum bitvmx_transaction_monitor::errors::MonitorError">MonitorError</a>&gt;</h4></section></div><h2 id="implementors" class="section-header">Implementors<a href="#implementors" class="anchor">§</a></h2><div id="implementors-list"><section id="impl-MonitorApi-for-MockMonitorApi" class="impl"><a class="src rightside" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#54">Source</a><a href="#impl-MonitorApi-for-MockMonitorApi" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.MonitorApi.html" title="trait bitvmx_transaction_monitor::monitor::MonitorApi">MonitorApi</a> for <a class="struct" href="struct.MockMonitorApi.html" title="struct bitvmx_transaction_monitor::monitor::MockMonitorApi">MockMonitorApi</a></h3></section><section id="impl-MonitorApi-for-Monitor%3CIndexer%3CBitcoinClient%3E,+MonitorStore%3E" class="impl"><a class="src rightside" href="../../src/bitvmx_transaction_monitor/monitor.rs.html#172-221">Source</a><a href="#impl-MonitorApi-for-Monitor%3CIndexer%3CBitcoinClient%3E,+MonitorStore%3E" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.MonitorApi.html" title="trait bitvmx_transaction_monitor::monitor::MonitorApi">MonitorApi</a> for <a class="struct" href="struct.Monitor.html" title="struct bitvmx_transaction_monitor::monitor::Monitor">Monitor</a>&lt;IndexerType, <a class="struct" href="../store/struct.MonitorStore.html" title="struct bitvmx_transaction_monitor::store::MonitorStore">MonitorStore</a>&gt;</h3></section></div><script src="../../trait.impl/bitvmx_transaction_monitor/monitor/trait.MonitorApi.js" async></script></section></div></main></body></html>

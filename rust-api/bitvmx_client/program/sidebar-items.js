@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["participant","program","protocols","state","variables","witness"]};

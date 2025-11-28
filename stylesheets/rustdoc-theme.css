@@ -1,0 +1,169 @@
+/**
+ * BitVMX Material Theme Override for Rustdoc
+ *
+ * This stylesheet provides additional styling to ensure rustdoc
+ * pages integrate seamlessly with the Material for MkDocs theme.
+ */
+
+/* Apply to rustdoc content within our site */
+.rustdoc,
+body.rustdoc {
+    /* Match Material theme orange colors */
+    --link-color: #ff6f00;
+    --main-background-color: #ffffff;
+    --main-color: rgba(0, 0, 0, 0.87);
+    --sidebar-background-color: #fafafa;
+    --sidebar-current-link-background-color: #ffe0b2;
+    --code-block-background-color: #f5f5f5;
+    --border-color: #e0e0e0;
+    --heading-color: #000000;
+
+    /* Code highlighting to match Material */
+    --code-highlight-kw-color: #7c4dff;
+    --code-highlight-kw-2-color: #5c6bc0;
+    --code-highlight-string-color: #43a047;
+    --code-highlight-number-color: #ff6f00;
+    --code-highlight-comment-color: #757575;
+    --code-highlight-doc-comment-color: #616161;
+    --code-highlight-trait-color: #ff6f00;
+    --code-highlight-function-color: #5c6bc0;
+
+    /* Search colors */
+    --search-result-link-focus-background-color: #fff3e0;
+    --search-result-border-color: #e0e0e0;
+}
+
+/* Dark mode support - matches Material slate theme */
+[data-md-color-scheme="slate"] .rustdoc,
+body[data-theme="dark"].rustdoc {
+    --link-color: #ff8f00;
+    --main-background-color: #1e1e1e;
+    --main-color: rgba(255, 255, 255, 0.87);
+    --sidebar-background-color: #252525;
+    --sidebar-current-link-background-color: #3d2800;
+    --code-block-background-color: #2d2d2d;
+    --border-color: #404040;
+    --heading-color: #ffffff;
+
+    --code-highlight-kw-color: #b388ff;
+    --code-highlight-kw-2-color: #9fa8da;
+    --code-highlight-string-color: #81c784;
+    --code-highlight-number-color: #ff8f00;
+    --code-highlight-comment-color: #9e9e9e;
+    --code-highlight-doc-comment-color: #bdbdbd;
+    --code-highlight-trait-color: #ff8f00;
+    --code-highlight-function-color: #9fa8da;
+
+    --search-result-link-focus-background-color: #3d2800;
+    --search-result-border-color: #404040;
+}
+
+/* Enhance header/navigation consistency */
+.rustdoc nav.sidebar {
+    border-right: 1px solid var(--border-color);
+    background-color: var(--sidebar-background-color);
+}
+
+.rustdoc nav.sidebar a {
+    color: var(--link-color);
+}
+
+.rustdoc nav.sidebar a:hover {
+    background-color: var(--sidebar-current-link-background-color);
+}
+
+/* Improve code block styling */
+.rustdoc pre.rust,
+.rustdoc .example-wrap {
+    background-color: var(--code-block-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Enhance search results */
+.rustdoc .search-results a {
+    color: var(--link-color);
+}
+
+.rustdoc .search-results a:hover,
+.rustdoc .search-results a:focus {
+    background-color: var(--search-result-link-focus-background-color);
+}
+
+/* Style module/struct/trait headings */
+.rustdoc h1,
+.rustdoc h2,
+.rustdoc h3,
+.rustdoc h4 {
+    color: var(--heading-color);
+    border-bottom-color: var(--border-color);
+}
+
+/* Improve item documentation styling */
+.rustdoc .item-decl {
+    background-color: var(--code-block-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Back navigation helper for rustdoc pages */
+.rustdoc .sidebar-crate::after {
+    content: '';
+    display: block;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Ensure links stand out */
+.rustdoc a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.rustdoc a:hover {
+    text-decoration: underline;
+}
+
+/* Style stability badges */
+.rustdoc .stability {
+    border-color: var(--border-color);
+}
+
+/* Type signature styling */
+.rustdoc .type-decl {
+    color: var(--main-color);
+}
+
+/* Improve table styling */
+.rustdoc table {
+    border-color: var(--border-color);
+}
+
+.rustdoc table th {
+    background-color: var(--sidebar-background-color);
+    border-color: var(--border-color);
+}
+
+.rustdoc table td {
+    border-color: var(--border-color);
+}
+
+/* Search input styling */
+.rustdoc .search-input {
+    border-color: var(--border-color);
+    background-color: var(--main-background-color);
+    color: var(--main-color);
+}
+
+.rustdoc .search-input:focus {
+    border-color: var(--link-color);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .rustdoc nav.sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+}

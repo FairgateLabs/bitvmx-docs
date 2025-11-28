@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["__ack_news","__add_monitor","__cancel_monitor","__deactivate_monitor","__get_monitor_height","__get_monitors","__get_news","__update_monitor_height","__update_news"]};

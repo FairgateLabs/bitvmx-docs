@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["estimate_min_relay_fee"]};

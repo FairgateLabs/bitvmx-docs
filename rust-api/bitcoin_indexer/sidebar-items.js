@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["config","errors","indexer","settings","store","types"],"type":["IndexerType"]};

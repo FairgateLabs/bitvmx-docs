@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["__mock_MockIndexerStore","__mock_MockIndexerStore_StoreClient"],"struct":["IndexerStore","MockIndexerStore"],"trait":["StoreClient"]};

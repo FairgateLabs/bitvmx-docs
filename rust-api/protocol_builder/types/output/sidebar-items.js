@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["AUTO_AMOUNT","RECOVER_AMOUNT"],"enum":["OutputType"],"struct":["MessageId","SpeedupData","Utxo"]};

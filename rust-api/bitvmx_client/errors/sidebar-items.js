@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["BitVMXError","BitcoinClientError","ClientError","ConfigError","ParseError","ProgramError"]};

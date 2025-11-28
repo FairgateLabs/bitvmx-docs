@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["MAX_PUBKEY_HASH_LEN"],"struct":["Identifier"],"type":["PubkHash"]};

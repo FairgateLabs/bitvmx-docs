@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["MuSig2Signer"],"trait":["MuSig2SignerApi"],"type":["PartialSignatureData"]};

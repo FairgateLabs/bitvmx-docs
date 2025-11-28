@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["InputArgs","SighashType","Signature","SpendMode"],"struct":["InputSignatures","InputType"]};

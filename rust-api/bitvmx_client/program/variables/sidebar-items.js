@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["VariableTypes","WitnessTypes"],"struct":["Globals","WitnessVars"],"type":["PartialUtxo"]};

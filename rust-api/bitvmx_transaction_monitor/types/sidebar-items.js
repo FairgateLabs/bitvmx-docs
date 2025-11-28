@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["AckMonitorNews","MonitorNews","TransactionBlockchainStatus","TypesToMonitor"],"struct":["BlockInfo","TransactionStatus","TransactionStore"],"type":["FullBlock","Id","MonitorType"]};

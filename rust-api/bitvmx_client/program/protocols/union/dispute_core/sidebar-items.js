@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["CHALLENGE_KEY","PEGOUT_ID"],"struct":["DisputeCoreProtocol"]};

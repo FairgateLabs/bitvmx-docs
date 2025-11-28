@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["example","get_transaction_hex","get_transaction_non_witness_size","get_transaction_total_size","get_transaction_vsize"]};

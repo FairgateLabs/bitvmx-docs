@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `BitVMXApi` trait in crate `bitvmx_client`."><title>BitVMXApi in bitvmx_client::api - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../static.files/rustdoc-46132b98.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="bitvmx_client" data-themes="" data-resource-suffix="" data-rustdoc-version="1.85.1 (4eb161250 2025-03-15)" data-channel="1.85.1" data-search-js="search-75f5ac3e.js" data-settings-js="settings-0f613d39.js" ><script src="../../static.files/storage-59e33391.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-044be391.svg"><!-- Custom styling to integrate rustdoc with BitVMX Material theme -->
+<style>
+    :root {
+        /* Override rustdoc colors to match Material orange theme */
+        --main-background-color: #ffffff;
+        --main-color: rgba(0, 0, 0, 0.87);
+        --link-color: #ff6f00;
+        --code-highlight-kw-color: #8959a8;
+        --code-highlight-kw-2-color: #4271ae;
+        --code-highlight-trait-color: #c97500;
+        --code-highlight-macro-color: #3e999f;
+        --code-highlight-function-color: #4271ae;
+        --code-highlight-string-color: #718c00;
+        --code-highlight-number-color: #ff6f00;
+        --code-highlight-bool-val-color: #c97500;
+        --code-highlight-self-color: #c97500;
+        --code-highlight-lifetime-color: #f5871f;
+        --code-highlight-prelude-ty-color: #c97500;
+        --code-highlight-comment-color: #8e908c;
+        --sidebar-background-color: #fafafa;
+        --sidebar-background-color-hover: #ffe0b2;
+        --border-color: #e0e0e0;
+        --search-result-link-focus-background-color: #fff3e0;
+    }
+
+    /* Dark mode support */
+    [data-theme="dark"],
+    body.dark-mode {
+        --main-background-color: #1e1e1e;
+        --main-color: rgba(255, 255, 255, 0.87);
+        --link-color: #ff8f00;
+        --code-highlight-kw-color: #b388ff;
+        --code-highlight-kw-2-color: #9fa8da;
+        --code-highlight-trait-color: #ffab40;
+        --code-highlight-macro-color: #4db6ac;
+        --code-highlight-function-color: #9fa8da;
+        --code-highlight-string-color: #81c784;
+        --code-highlight-number-color: #ff8f00;
+        --code-highlight-bool-val-color: #ffab40;
+        --code-highlight-self-color: #ffab40;
+        --code-highlight-lifetime-color: #ff8f00;
+        --code-highlight-prelude-ty-color: #ffab40;
+        --code-highlight-comment-color: #9e9e9e;
+        --sidebar-background-color: #252525;
+        --sidebar-background-color-hover: #3d2800;
+        --border-color: #404040;
+        --search-result-link-focus-background-color: #3d2800;
+    }
+
+    /* Make links more prominent with BitVMX orange */
+    a {
+        color: var(--link-color);
+    }
+
+    a:hover {
+        color: var(--link-color);
+        text-decoration: underline;
+    }
+
+    /* Style the top navigation bar */
+    nav.sidebar {
+        border-right: 1px solid var(--border-color);
+    }
+
+    /* Improve code block styling */
+    pre.rust {
+        background-color: var(--main-background-color);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+
+    /* Enhance search results */
+    .search-results a {
+        color: var(--link-color);
+    }
+
+    .search-results a:hover,
+    .search-results a:focus {
+        background-color: var(--search-result-link-focus-background-color);
+    }
+</style>
+
+</head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../bitvmx_client/index.html">bitvmx_<wbr>client</a><span class="version">0.0.2</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">BitVMX<wbr>Api</a></h2><h3><a href="#required-methods">Required Methods</a></h3><ul class="block"><li><a href="#tymethod.dispatch_transaction" title="dispatch_transaction">dispatch_transaction</a></li><li><a href="#tymethod.dispatch_transaction_name" title="dispatch_transaction_name">dispatch_transaction_name</a></li><li><a href="#tymethod.generate_zkp" title="generate_zkp">generate_zkp</a></li><li><a href="#tymethod.get_aggregated_pubkey" title="get_aggregated_pubkey">get_aggregated_pubkey</a></li><li><a href="#tymethod.get_spv_proof" title="get_spv_proof">get_spv_proof</a></li><li><a href="#tymethod.get_transaction" title="get_transaction">get_transaction</a></li><li><a href="#tymethod.get_var" title="get_var">get_var</a></li><li><a href="#tymethod.get_witness" title="get_witness">get_witness</a></li><li><a href="#tymethod.get_zkp_execution_result" title="get_zkp_execution_result">get_zkp_execution_result</a></li><li><a href="#tymethod.handle_emulator_message" title="handle_emulator_message">handle_emulator_message</a></li><li><a href="#tymethod.handle_message" title="handle_message">handle_message</a></li><li><a href="#tymethod.handle_prover_message" title="handle_prover_message">handle_prover_message</a></li><li><a href="#tymethod.ping" title="ping">ping</a></li><li><a href="#tymethod.proof_ready" title="proof_ready">proof_ready</a></li><li><a href="#tymethod.setup" title="setup">setup</a></li><li><a href="#tymethod.setup_key" title="setup_key">setup_key</a></li><li><a href="#tymethod.subscribe_to_rsk_pegin" title="subscribe_to_rsk_pegin">subscribe_to_rsk_pegin</a></li><li><a href="#tymethod.subscribe_to_tx" title="subscribe_to_tx">subscribe_to_tx</a></li><li><a href="#tymethod.subscribe_utxo" title="subscribe_utxo">subscribe_utxo</a></li></ul><h3><a href="#implementors">Implementors</a></h3></section><div id="rustdoc-modnav"><h2><a href="index.html">In bitvmx_<wbr>client::<wbr>api</a></h2></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><span class="rustdoc-breadcrumbs"><a href="../index.html">bitvmx_client</a>::<wbr><a href="index.html">api</a></span><h1>Trait <span class="trait">BitVMXApi</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/bitvmx_client/api.rs.html#6-78">Source</a> </span></div><pre class="rust item-decl"><code>pub trait BitVMXApi {
+<details class="toggle type-contents-toggle"><summary class="hideme"><span>Show 19 methods</span></summary>    // Required methods
+    fn <a href="#tymethod.ping" class="fn">ping</a>(
+        &amp;mut self,
+        from: Identifier,
+        uuid: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.setup_key" class="fn">setup_key</a>(
+        &amp;mut self,
+        from: Identifier,
+        id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+        participants: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../program/participant/struct.CommsAddress.html" title="struct bitvmx_client::program::participant::CommsAddress">CommsAddress</a>&gt;,
+        participants_keys: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;PublicKey&gt;&gt;,
+        leader_idx: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u16.html">u16</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.setup" class="fn">setup</a>(
+        &amp;mut self,
+        id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+        program_type: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+        peer_address: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../program/participant/struct.CommsAddress.html" title="struct bitvmx_client::program::participant::CommsAddress">CommsAddress</a>&gt;,
+        leader: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u16.html">u16</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.dispatch_transaction_name" class="fn">dispatch_transaction_name</a>(
+        &amp;mut self,
+        id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+        name: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.str.html">str</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.dispatch_transaction" class="fn">dispatch_transaction</a>(
+        &amp;mut self,
+        from: Identifier,
+        id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+        tx: Transaction,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.handle_message" class="fn">handle_message</a>(
+        &amp;mut self,
+        msg: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+        from: Identifier,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_aggregated_pubkey" class="fn">get_aggregated_pubkey</a>(
+        &amp;mut self,
+        from: Identifier,
+        id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.generate_zkp" class="fn">generate_zkp</a>(
+        &amp;mut self,
+        from: Identifier,
+        id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+        input: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u8.html">u8</a>&gt;,
+        elf_file_path: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.proof_ready" class="fn">proof_ready</a>(
+        &amp;mut self,
+        from: Identifier,
+        id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_zkp_execution_result" class="fn">get_zkp_execution_result</a>(
+        &amp;mut self,
+        from: Identifier,
+        id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_transaction" class="fn">get_transaction</a>(
+        &amp;mut self,
+        from: Identifier,
+        id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+        txid: Txid,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.subscribe_to_tx" class="fn">subscribe_to_tx</a>(
+        &amp;mut self,
+        from: Identifier,
+        id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+        txid: Txid,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.subscribe_utxo" class="fn">subscribe_utxo</a>(&amp;mut self, uuid: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.subscribe_to_rsk_pegin" class="fn">subscribe_to_rsk_pegin</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_var" class="fn">get_var</a>(
+        &amp;mut self,
+        from: Identifier,
+        id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+        key: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.str.html">str</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_witness" class="fn">get_witness</a>(
+        &amp;mut self,
+        from: Identifier,
+        id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+        key: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.str.html">str</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.handle_prover_message" class="fn">handle_prover_message</a>(&amp;mut self, msg: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_spv_proof" class="fn">get_spv_proof</a>(
+        &amp;mut self,
+        from: Identifier,
+        txid: Txid,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.handle_emulator_message" class="fn">handle_emulator_message</a>(
+        &amp;mut self,
+        msg: &amp;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;;
+</details>}</code></pre><h2 id="required-methods" class="section-header">Required Methods<a href="#required-methods" class="anchor">§</a></h2><div class="methods"><section id="tymethod.ping" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#7">Source</a><h4 class="code-header">fn <a href="#tymethod.ping" class="fn">ping</a>(&amp;mut self, from: Identifier, uuid: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.setup_key" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#9-16">Source</a><h4 class="code-header">fn <a href="#tymethod.setup_key" class="fn">setup_key</a>(
+    &amp;mut self,
+    from: Identifier,
+    id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+    participants: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../program/participant/struct.CommsAddress.html" title="struct bitvmx_client::program::participant::CommsAddress">CommsAddress</a>&gt;,
+    participants_keys: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;PublicKey&gt;&gt;,
+    leader_idx: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u16.html">u16</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.setup" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#18-24">Source</a><h4 class="code-header">fn <a href="#tymethod.setup" class="fn">setup</a>(
+    &amp;mut self,
+    id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+    program_type: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+    peer_address: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../program/participant/struct.CommsAddress.html" title="struct bitvmx_client::program::participant::CommsAddress">CommsAddress</a>&gt;,
+    leader: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u16.html">u16</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.dispatch_transaction_name" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#26">Source</a><h4 class="code-header">fn <a href="#tymethod.dispatch_transaction_name" class="fn">dispatch_transaction_name</a>(
+    &amp;mut self,
+    id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+    name: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.str.html">str</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.dispatch_transaction" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#28-33">Source</a><h4 class="code-header">fn <a href="#tymethod.dispatch_transaction" class="fn">dispatch_transaction</a>(
+    &amp;mut self,
+    from: Identifier,
+    id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+    tx: Transaction,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.handle_message" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#35">Source</a><h4 class="code-header">fn <a href="#tymethod.handle_message" class="fn">handle_message</a>(
+    &amp;mut self,
+    msg: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+    from: Identifier,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.get_aggregated_pubkey" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#37">Source</a><h4 class="code-header">fn <a href="#tymethod.get_aggregated_pubkey" class="fn">get_aggregated_pubkey</a>(
+    &amp;mut self,
+    from: Identifier,
+    id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.generate_zkp" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#39-45">Source</a><h4 class="code-header">fn <a href="#tymethod.generate_zkp" class="fn">generate_zkp</a>(
+    &amp;mut self,
+    from: Identifier,
+    id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+    input: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u8.html">u8</a>&gt;,
+    elf_file_path: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.proof_ready" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#47">Source</a><h4 class="code-header">fn <a href="#tymethod.proof_ready" class="fn">proof_ready</a>(&amp;mut self, from: Identifier, id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.get_zkp_execution_result" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#49">Source</a><h4 class="code-header">fn <a href="#tymethod.get_zkp_execution_result" class="fn">get_zkp_execution_result</a>(
+    &amp;mut self,
+    from: Identifier,
+    id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.get_transaction" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#51-56">Source</a><h4 class="code-header">fn <a href="#tymethod.get_transaction" class="fn">get_transaction</a>(
+    &amp;mut self,
+    from: Identifier,
+    id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+    txid: Txid,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.subscribe_to_tx" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#58-63">Source</a><h4 class="code-header">fn <a href="#tymethod.subscribe_to_tx" class="fn">subscribe_to_tx</a>(
+    &amp;mut self,
+    from: Identifier,
+    id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+    txid: Txid,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.subscribe_utxo" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#65">Source</a><h4 class="code-header">fn <a href="#tymethod.subscribe_utxo" class="fn">subscribe_utxo</a>(&amp;mut self, uuid: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.subscribe_to_rsk_pegin" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#67">Source</a><h4 class="code-header">fn <a href="#tymethod.subscribe_to_rsk_pegin" class="fn">subscribe_to_rsk_pegin</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.get_var" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#69">Source</a><h4 class="code-header">fn <a href="#tymethod.get_var" class="fn">get_var</a>(
+    &amp;mut self,
+    from: Identifier,
+    id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+    key: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.str.html">str</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.get_witness" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#71">Source</a><h4 class="code-header">fn <a href="#tymethod.get_witness" class="fn">get_witness</a>(
+    &amp;mut self,
+    from: Identifier,
+    id: <a class="struct" href="https://docs.rs/uuid/1.18.1/uuid/struct.Uuid.html" title="struct uuid::Uuid">Uuid</a>,
+    key: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.str.html">str</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.handle_prover_message" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#73">Source</a><h4 class="code-header">fn <a href="#tymethod.handle_prover_message" class="fn">handle_prover_message</a>(&amp;mut self, msg: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.get_spv_proof" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#75">Source</a><h4 class="code-header">fn <a href="#tymethod.get_spv_proof" class="fn">get_spv_proof</a>(
+    &amp;mut self,
+    from: Identifier,
+    txid: Txid,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section><section id="tymethod.handle_emulator_message" class="method"><a class="src rightside" href="../../src/bitvmx_client/api.rs.html#77">Source</a><h4 class="code-header">fn <a href="#tymethod.handle_emulator_message" class="fn">handle_emulator_message</a>(&amp;mut self, msg: &amp;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitVMXError.html" title="enum bitvmx_client::errors::BitVMXError">BitVMXError</a>&gt;</h4></section></div><h2 id="implementors" class="section-header">Implementors<a href="#implementors" class="anchor">§</a></h2><div id="implementors-list"><section id="impl-BitVMXApi-for-BitVMX" class="impl"><a class="src rightside" href="../../src/bitvmx_client/bitvmx.rs.html#743-1468">Source</a><a href="#impl-BitVMXApi-for-BitVMX" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.BitVMXApi.html" title="trait bitvmx_client::api::BitVMXApi">BitVMXApi</a> for <a class="struct" href="../bitvmx/struct.BitVMX.html" title="struct bitvmx_client::bitvmx::BitVMX">BitVMX</a></h3></section></div><script src="../../trait.impl/bitvmx_client/api/trait.BitVMXApi.js" async></script></section></div></main></body></html>

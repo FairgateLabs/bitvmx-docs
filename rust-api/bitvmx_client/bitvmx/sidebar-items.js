@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["THROTTLE_TICKS","WALLET_CHANGE_INDEX","WALLET_INDEX"],"enum":["Context"],"struct":["BitVMX"]};

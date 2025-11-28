@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["builder_connection_test","builder_outputs_test","builder_persistance_test","graph_test","input_test","output_test","single_scripts_test","utils","weight_computing_test"]};

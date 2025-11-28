@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["MonitoredTypes","TypesToMonitorStore"],"mod":["__mock_MockMonitorStore","__mock_MockMonitorStore_MonitorStoreApi"],"struct":["MockMonitorStore","MonitorStore"],"trait":["MonitorStoreApi"]};

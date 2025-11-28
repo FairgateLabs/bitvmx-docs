@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `bitvmx_client` crate."><title>bitvmx_client - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../static.files/rustdoc-46132b98.css"><meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="bitvmx_client" data-themes="" data-resource-suffix="" data-rustdoc-version="1.85.1 (4eb161250 2025-03-15)" data-channel="1.85.1" data-search-js="search-75f5ac3e.js" data-settings-js="settings-0f613d39.js" ><script src="../static.files/storage-59e33391.js"></script><script defer src="../crates.js"></script><script defer src="../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../static.files/favicon-044be391.svg"><!-- Custom styling to integrate rustdoc with BitVMX Material theme -->
+<style>
+    :root {
+        /* Override rustdoc colors to match Material orange theme */
+        --main-background-color: #ffffff;
+        --main-color: rgba(0, 0, 0, 0.87);
+        --link-color: #ff6f00;
+        --code-highlight-kw-color: #8959a8;
+        --code-highlight-kw-2-color: #4271ae;
+        --code-highlight-trait-color: #c97500;
+        --code-highlight-macro-color: #3e999f;
+        --code-highlight-function-color: #4271ae;
+        --code-highlight-string-color: #718c00;
+        --code-highlight-number-color: #ff6f00;
+        --code-highlight-bool-val-color: #c97500;
+        --code-highlight-self-color: #c97500;
+        --code-highlight-lifetime-color: #f5871f;
+        --code-highlight-prelude-ty-color: #c97500;
+        --code-highlight-comment-color: #8e908c;
+        --sidebar-background-color: #fafafa;
+        --sidebar-background-color-hover: #ffe0b2;
+        --border-color: #e0e0e0;
+        --search-result-link-focus-background-color: #fff3e0;
+    }
+
+    /* Dark mode support */
+    [data-theme="dark"],
+    body.dark-mode {
+        --main-background-color: #1e1e1e;
+        --main-color: rgba(255, 255, 255, 0.87);
+        --link-color: #ff8f00;
+        --code-highlight-kw-color: #b388ff;
+        --code-highlight-kw-2-color: #9fa8da;
+        --code-highlight-trait-color: #ffab40;
+        --code-highlight-macro-color: #4db6ac;
+        --code-highlight-function-color: #9fa8da;
+        --code-highlight-string-color: #81c784;
+        --code-highlight-number-color: #ff8f00;
+        --code-highlight-bool-val-color: #ffab40;
+        --code-highlight-self-color: #ffab40;
+        --code-highlight-lifetime-color: #ff8f00;
+        --code-highlight-prelude-ty-color: #ffab40;
+        --code-highlight-comment-color: #9e9e9e;
+        --sidebar-background-color: #252525;
+        --sidebar-background-color-hover: #3d2800;
+        --border-color: #404040;
+        --search-result-link-focus-background-color: #3d2800;
+    }
+
+    /* Make links more prominent with BitVMX orange */
+    a {
+        color: var(--link-color);
+    }
+
+    a:hover {
+        color: var(--link-color);
+        text-decoration: underline;
+    }
+
+    /* Style the top navigation bar */
+    nav.sidebar {
+        border-right: 1px solid var(--border-color);
+    }
+
+    /* Improve code block styling */
+    pre.rust {
+        background-color: var(--main-background-color);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+
+    /* Enhance search results */
+    .search-results a {
+        color: var(--link-color);
+    }
+
+    .search-results a:hover,
+    .search-results a:focus {
+        background-color: var(--search-result-link-focus-background-color);
+    }
+</style>
+
+</head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../bitvmx_client/index.html">bitvmx_<wbr>client</a><span class="version">0.0.2</span></h2></div><div class="sidebar-elems"><ul class="block"><li><a id="all-types" href="all.html">All Items</a></li></ul><section id="rustdoc-toc"><h3><a href="#reexports">Crate Items</a></h3><ul class="block"><li><a href="#reexports" title="Re-exports">Re-exports</a></li><li><a href="#modules" title="Modules">Modules</a></li><li><a href="#macros" title="Macros">Macros</a></li></ul></section><div id="rustdoc-modnav"></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><h1>Crate <span>bitvmx_client</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../src/bitvmx_client/lib.rs.html#1-26">Source</a> </span></div><h2 id="reexports" class="section-header">Re-exports<a href="#reexports" class="anchor">§</a></h2><ul class="item-table"><li><div class="item-name" id="reexport.bitcoin"><code>pub use bitcoin;</code></div></li><li><div class="item-name" id="reexport.bitcoin_coordinator"><code>pub use bitcoin_coordinator;</code></div></li><li><div class="item-name" id="reexport.bitcoin_script"><code>pub use bitcoin_script;</code></div></li><li><div class="item-name" id="reexport.bitcoin_scriptexec"><code>pub use bitcoin_scriptexec;</code></div></li><li><div class="item-name" id="reexport.bitvmx_broker"><code>pub use bitvmx_broker;</code></div></li><li><div class="item-name" id="reexport.bitvmx_wallet"><code>pub use bitvmx_wallet;</code></div></li><li><div class="item-name" id="reexport.chrono"><code>pub use <a class="mod" href="https://docs.rs/chrono/latest/chrono/index.html" title="mod chrono">chrono</a>;</code></div></li><li><div class="item-name" id="reexport.protocol_builder"><code>pub use protocol_builder;</code></div></li><li><div class="item-name" id="reexport.serde"><code>pub use <a class="mod" href="https://docs.rs/serde/1.0.228/serde/index.html" title="mod serde">serde</a>;</code></div></li><li><div class="item-name" id="reexport.uuid"><code>pub use <a class="mod" href="https://docs.rs/uuid/1.18.1/uuid/index.html" title="mod uuid">uuid</a>;</code></div></li></ul><h2 id="modules" class="section-header">Modules<a href="#modules" class="anchor">§</a></h2><ul class="item-table"><li><div class="item-name"><a class="mod" href="api/index.html" title="mod bitvmx_client::api">api</a></div></li><li><div class="item-name"><a class="mod" href="bitvmx/index.html" title="mod bitvmx_client::bitvmx">bitvmx</a></div></li><li><div class="item-name"><a class="mod" href="client/index.html" title="mod bitvmx_client::client">client</a></div></li><li><div class="item-name"><a class="mod" href="collaborate/index.html" title="mod bitvmx_client::collaborate">collaborate</a></div></li><li><div class="item-name"><a class="mod" href="comms_helper/index.html" title="mod bitvmx_client::comms_helper">comms_<wbr>helper</a></div></li><li><div class="item-name"><a class="mod" href="config/index.html" title="mod bitvmx_client::config">config</a></div></li><li><div class="item-name"><a class="mod" href="errors/index.html" title="mod bitvmx_client::errors">errors</a></div></li><li><div class="item-name"><a class="mod" href="helper/index.html" title="mod bitvmx_client::helper">helper</a></div></li><li><div class="item-name"><a class="mod" href="keychain/index.html" title="mod bitvmx_client::keychain">keychain</a></div></li><li><div class="item-name"><a class="mod" href="ping_helper/index.html" title="mod bitvmx_client::ping_helper">ping_<wbr>helper</a></div></li><li><div class="item-name"><a class="mod" href="program/index.html" title="mod bitvmx_client::program">program</a></div></li><li><div class="item-name"><a class="mod" href="shutdown/index.html" title="mod bitvmx_client::shutdown">shutdown</a></div></li><li><div class="item-name"><a class="mod" href="spv_proof/index.html" title="mod bitvmx_client::spv_proof">spv_<wbr>proof</a></div></li><li><div class="item-name"><a class="mod" href="types/index.html" title="mod bitvmx_client::types">types</a></div></li></ul><h2 id="macros" class="section-header">Macros<a href="#macros" class="anchor">§</a></h2><ul class="item-table"><li><div class="item-name"><a class="macro" href="macro.send_to_l2.html" title="macro bitvmx_client::send_to_l2">send_<wbr>to_<wbr>l2</a></div></li></ul><script type="text/json" id="notable-traits-data">{"&<Vec<T, A> as Index<I>>::Output":"<h3>Notable traits for <code><a class=\"struct\" href=\"https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html\" title=\"struct alloc::vec::Vec\">Vec</a>&lt;<a class=\"primitive\" href=\"https://doc.rust-lang.org/1.85.1/std/primitive.u8.html\">u8</a>, A&gt;</code></h3><pre><code><div class=\"where\">impl&lt;A&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/std/io/trait.Write.html\" title=\"trait std::io::Write\">Write</a> for <a class=\"struct\" href=\"https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html\" title=\"struct alloc::vec::Vec\">Vec</a>&lt;<a class=\"primitive\" href=\"https://doc.rust-lang.org/1.85.1/std/primitive.u8.html\">u8</a>, A&gt;<div class=\"where\">where\n    A: <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/core/alloc/trait.Allocator.html\" title=\"trait core::alloc::Allocator\">Allocator</a>,</div></div>","&mut <Vec<T, A> as Index<I>>::Output":"<h3>Notable traits for <code><a class=\"struct\" href=\"https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html\" title=\"struct alloc::vec::Vec\">Vec</a>&lt;<a class=\"primitive\" href=\"https://doc.rust-lang.org/1.85.1/std/primitive.u8.html\">u8</a>, A&gt;</code></h3><pre><code><div class=\"where\">impl&lt;A&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/std/io/trait.Write.html\" title=\"trait std::io::Write\">Write</a> for <a class=\"struct\" href=\"https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html\" title=\"struct alloc::vec::Vec\">Vec</a>&lt;<a class=\"primitive\" href=\"https://doc.rust-lang.org/1.85.1/std/primitive.u8.html\">u8</a>, A&gt;<div class=\"where\">where\n    A: <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/core/alloc/trait.Allocator.html\" title=\"trait core::alloc::Allocator\">Allocator</a>,</div></div>","<Vec<T, A> as IntoIterator>::IntoIter":"<h3>Notable traits for <code><a class=\"struct\" href=\"https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html\" title=\"struct alloc::vec::Vec\">Vec</a>&lt;<a class=\"primitive\" href=\"https://doc.rust-lang.org/1.85.1/std/primitive.u8.html\">u8</a>, A&gt;</code></h3><pre><code><div class=\"where\">impl&lt;A&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/std/io/trait.Write.html\" title=\"trait std::io::Write\">Write</a> for <a class=\"struct\" href=\"https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html\" title=\"struct alloc::vec::Vec\">Vec</a>&lt;<a class=\"primitive\" href=\"https://doc.rust-lang.org/1.85.1/std/primitive.u8.html\">u8</a>, A&gt;<div class=\"where\">where\n    A: <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/core/alloc/trait.Allocator.html\" title=\"trait core::alloc::Allocator\">Allocator</a>,</div></div>","<Vec<T> as IntoDeserializer<'de, E>>::Deserializer":"<h3>Notable traits for <code><a class=\"struct\" href=\"https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html\" title=\"struct alloc::vec::Vec\">Vec</a>&lt;<a class=\"primitive\" href=\"https://doc.rust-lang.org/1.85.1/std/primitive.u8.html\">u8</a>, A&gt;</code></h3><pre><code><div class=\"where\">impl&lt;A&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/std/io/trait.Write.html\" title=\"trait std::io::Write\">Write</a> for <a class=\"struct\" href=\"https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html\" title=\"struct alloc::vec::Vec\">Vec</a>&lt;<a class=\"primitive\" href=\"https://doc.rust-lang.org/1.85.1/std/primitive.u8.html\">u8</a>, A&gt;<div class=\"where\">where\n    A: <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/core/alloc/trait.Allocator.html\" title=\"trait core::alloc::Allocator\">Allocator</a>,</div></div>","<Vec<T> as IntoWasmAbi>::Abi":"<h3>Notable traits for <code><a class=\"struct\" href=\"https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html\" title=\"struct alloc::vec::Vec\">Vec</a>&lt;<a class=\"primitive\" href=\"https://doc.rust-lang.org/1.85.1/std/primitive.u8.html\">u8</a>, A&gt;</code></h3><pre><code><div class=\"where\">impl&lt;A&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/std/io/trait.Write.html\" title=\"trait std::io::Write\">Write</a> for <a class=\"struct\" href=\"https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html\" title=\"struct alloc::vec::Vec\">Vec</a>&lt;<a class=\"primitive\" href=\"https://doc.rust-lang.org/1.85.1/std/primitive.u8.html\">u8</a>, A&gt;<div class=\"where\">where\n    A: <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/core/alloc/trait.Allocator.html\" title=\"trait core::alloc::Allocator\">Allocator</a>,</div></div>","<Vec<T> as ToStatic>::Owned":"<h3>Notable traits for <code><a class=\"struct\" href=\"https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html\" title=\"struct alloc::vec::Vec\">Vec</a>&lt;<a class=\"primitive\" href=\"https://doc.rust-lang.org/1.85.1/std/primitive.u8.html\">u8</a>, A&gt;</code></h3><pre><code><div class=\"where\">impl&lt;A&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/std/io/trait.Write.html\" title=\"trait std::io::Write\">Write</a> for <a class=\"struct\" href=\"https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html\" title=\"struct alloc::vec::Vec\">Vec</a>&lt;<a class=\"primitive\" href=\"https://doc.rust-lang.org/1.85.1/std/primitive.u8.html\">u8</a>, A&gt;<div class=\"where\">where\n    A: <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/core/alloc/trait.Allocator.html\" title=\"trait core::alloc::Allocator\">Allocator</a>,</div></div>"}</script></section></div></main></body></html>

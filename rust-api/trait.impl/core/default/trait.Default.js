@@ -1,0 +1,9 @@
+(function() {
+    var implementors = Object.fromEntries([["bitvmx_client",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"struct\" href=\"bitvmx_client/config/struct.PingConfig.html\" title=\"struct bitvmx_client::config::PingConfig\">PingConfig</a>"],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"struct\" href=\"bitvmx_client/program/protocols/dispute/config/struct.ConfigResult.html\" title=\"struct bitvmx_client::program::protocols::dispute::config::ConfigResult\">ConfigResult</a>"],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"struct\" href=\"bitvmx_client/program/protocols/dispute/config/struct.ConfigResults.html\" title=\"struct bitvmx_client::program::protocols::dispute::config::ConfigResults\">ConfigResults</a>"],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.85.1/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"struct\" href=\"bitvmx_client/types/struct.ProgramRequestInfo.html\" title=\"struct bitvmx_client::types::ProgramRequestInfo\">ProgramRequestInfo</a>"]]]]);
+    if (window.register_implementors) {
+        window.register_implementors(implementors);
+    } else {
+        window.pending_implementors = implementors;
+    }
+})()
+//{"start":57,"fragment_lengths":[1350]}

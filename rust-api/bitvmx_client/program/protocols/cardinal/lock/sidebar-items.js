@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["DUST","HAPPY_PATH_TX","LOCK_REQ_TX","LOCK_TX","MIN_RELAY_FEE"],"fn":["lock_protocol_dust_cost"],"struct":["LockProtocol"]};

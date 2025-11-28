@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ParticipantRole","PublicKeyType"],"struct":["CommsAddress","ParticipantData","ParticipantKeys"]};

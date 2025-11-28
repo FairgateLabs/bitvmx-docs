@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["CommsMessageType"],"fn":["deserialize_msg","request","response","serialize_msg"]};
