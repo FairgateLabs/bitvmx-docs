@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["StorageConfig"]};
+window.SIDEBAR_ITEMS = {"struct":["PasswordPolicyConfig","StorageConfig"]};

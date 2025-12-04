@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["__get_best_block","__get_best_height","__get_block_by_height","__get_blockchain_best_height","__get_estimated_fee_rate","__get_tx","__is_ready","__tick"]};
+window.SIDEBAR_ITEMS = {"mod":["__get_best_block","__get_best_height","__get_block_by_hash","__get_block_by_height","__get_blockchain_best_height","__get_estimated_fee_rate","__get_tx","__is_ready","__tick"]};

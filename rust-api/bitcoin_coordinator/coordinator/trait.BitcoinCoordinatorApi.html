@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `BitcoinCoordinatorApi` trait in crate `bitcoin_coordinator`."><title>BitcoinCoordinatorApi in bitcoin_coordinator::coordinator - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../static.files/rustdoc-46132b98.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="bitcoin_coordinator" data-themes="" data-resource-suffix="" data-rustdoc-version="1.85.1 (4eb161250 2025-03-15)" data-channel="1.85.1" data-search-js="search-75f5ac3e.js" data-settings-js="settings-0f613d39.js" ><script src="../../static.files/storage-59e33391.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-044be391.svg"><!-- Custom styling to integrate rustdoc with BitVMX Material theme -->
+<style>
+    :root {
+        /* Override rustdoc colors to match Material blue theme */
+        --main-background-color: #ffffff;
+        --main-color: rgba(0, 0, 0, 0.87);
+        --link-color: #1a79fe;
+        --code-highlight-kw-color: #8959a8;
+        --code-highlight-kw-2-color: #1a79fe;
+        --code-highlight-trait-color: #0066d9;
+        --code-highlight-macro-color: #3e999f;
+        --code-highlight-function-color: #1a79fe;
+        --code-highlight-string-color: #718c00;
+        --code-highlight-number-color: #1a79fe;
+        --code-highlight-bool-val-color: #0066d9;
+        --code-highlight-self-color: #0066d9;
+        --code-highlight-lifetime-color: #4a9ffe;
+        --code-highlight-prelude-ty-color: #0066d9;
+        --code-highlight-comment-color: #8e908c;
+        --sidebar-background-color: #fafafa;
+        --sidebar-background-color-hover: #e3f2fd;
+        --border-color: #e0e0e0;
+        --search-result-link-focus-background-color: #e3f2fd;
+    }
+
+    /* Dark mode support */
+    [data-theme="dark"],
+    body.dark-mode {
+        --main-background-color: #1e1e1e;
+        --main-color: rgba(255, 255, 255, 0.87);
+        --link-color: #4a9ffe;
+        --code-highlight-kw-color: #b388ff;
+        --code-highlight-kw-2-color: #4a9ffe;
+        --code-highlight-trait-color: #6ab0ff;
+        --code-highlight-macro-color: #4db6ac;
+        --code-highlight-function-color: #4a9ffe;
+        --code-highlight-string-color: #81c784;
+        --code-highlight-number-color: #4a9ffe;
+        --code-highlight-bool-val-color: #6ab0ff;
+        --code-highlight-self-color: #6ab0ff;
+        --code-highlight-lifetime-color: #4a9ffe;
+        --code-highlight-prelude-ty-color: #6ab0ff;
+        --code-highlight-comment-color: #9e9e9e;
+        --sidebar-background-color: #252525;
+        --sidebar-background-color-hover: #1a3d5f;
+        --border-color: #404040;
+        --search-result-link-focus-background-color: #1a3d5f;
+    }
+
+    /* Make links more prominent */
+    a {
+        color: var(--link-color);
+    }
+
+    a:hover {
+        color: var(--link-color);
+        text-decoration: underline;
+    }
+
+    /* Style the top navigation bar */
+    nav.sidebar {
+        border-right: 1px solid var(--border-color);
+    }
+
+    /* Improve code block styling */
+    pre.rust {
+        background-color: var(--main-background-color);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+
+    /* Enhance search results */
+    .search-results a {
+        color: var(--link-color);
+    }
+
+    .search-results a:hover,
+    .search-results a:focus {
+        background-color: var(--search-result-link-focus-background-color);
+    }
+</style>
+
+</head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../bitcoin_coordinator/index.html">bitcoin_<wbr>coordinator</a><span class="version">0.0.2</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Bitcoin<wbr>Coordinator<wbr>Api</a></h2><h3><a href="#required-methods">Required Methods</a></h3><ul class="block"><li><a href="#tymethod.ack_news" title="ack_news">ack_news</a></li><li><a href="#tymethod.add_funding" title="add_funding">add_funding</a></li><li><a href="#tymethod.cancel" title="cancel">cancel</a></li><li><a href="#tymethod.dispatch" title="dispatch">dispatch</a></li><li><a href="#tymethod.get_news" title="get_news">get_news</a></li><li><a href="#tymethod.get_transaction" title="get_transaction">get_transaction</a></li><li><a href="#tymethod.is_ready" title="is_ready">is_ready</a></li><li><a href="#tymethod.monitor" title="monitor">monitor</a></li><li><a href="#tymethod.tick" title="tick">tick</a></li></ul><h3><a href="#implementors">Implementors</a></h3></section><div id="rustdoc-modnav"><h2><a href="index.html">In bitcoin_<wbr>coordinator::<wbr>coordinator</a></h2></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><span class="rustdoc-breadcrumbs"><a href="../index.html">bitcoin_coordinator</a>::<wbr><a href="index.html">coordinator</a></span><h1>Trait <span class="trait">BitcoinCoordinatorApi</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/bitcoin_coordinator/coordinator.rs.html#39-97">Source</a> </span></div><pre class="rust item-decl"><code>pub trait BitcoinCoordinatorApi {
+    // Required methods
+    fn <a href="#tymethod.is_ready" class="fn">is_ready</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.bool.html">bool</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.tick" class="fn">tick</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.monitor" class="fn">monitor</a>(
+        &amp;self,
+        data: <a class="enum" href="../enum.TypesToMonitor.html" title="enum bitcoin_coordinator::TypesToMonitor">TypesToMonitor</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.dispatch" class="fn">dispatch</a>(
+        &amp;self,
+        tx: Transaction,
+        speedup: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;SpeedupData&gt;,
+        context: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+        block_height: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;BlockHeight&gt;,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.cancel" class="fn">cancel</a>(
+        &amp;self,
+        data: <a class="enum" href="../enum.TypesToMonitor.html" title="enum bitcoin_coordinator::TypesToMonitor">TypesToMonitor</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.add_funding" class="fn">add_funding</a>(&amp;self, utxo: Utxo) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_transaction" class="fn">get_transaction</a>(
+        &amp;self,
+        txid: Txid,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../struct.TransactionStatus.html" title="struct bitcoin_coordinator::TransactionStatus">TransactionStatus</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_news" class="fn">get_news</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../types/struct.News.html" title="struct bitcoin_coordinator::types::News">News</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.ack_news" class="fn">ack_news</a>(&amp;self, news: <a class="enum" href="../types/enum.AckNews.html" title="enum bitcoin_coordinator::types::AckNews">AckNews</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;;
+}</code></pre><h2 id="required-methods" class="section-header">Required Methods<a href="#required-methods" class="anchor">§</a></h2><div class="methods"><details class="toggle method-toggle" open><summary><section id="tymethod.is_ready" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/coordinator.rs.html#42">Source</a><h4 class="code-header">fn <a href="#tymethod.is_ready" class="fn">is_ready</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.bool.html">bool</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;</h4></section></summary><div class="docblock"><p>Checks if the coordinator is ready to process transactions
+Returns true if the coordinator is ready, false otherwise</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.tick" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/coordinator.rs.html#46">Source</a><h4 class="code-header">fn <a href="#tymethod.tick" class="fn">tick</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;</h4></section></summary><div class="docblock"><p>Processes pending transactions and updates their status
+This method should be called periodically to keep the coordinator state up-to-date</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.monitor" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/coordinator.rs.html#53">Source</a><h4 class="code-header">fn <a href="#tymethod.monitor" class="fn">monitor</a>(&amp;self, data: <a class="enum" href="../enum.TypesToMonitor.html" title="enum bitcoin_coordinator::TypesToMonitor">TypesToMonitor</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;</h4></section></summary><div class="docblock"><p>Registers a type of data to be monitored by the coordinator
+The data will be tracked for confirmations and status changes, and updates will be reported through the news.</p>
+<h5 id="arguments"><a class="doc-anchor" href="#arguments">§</a>Arguments</h5>
+<ul>
+<li><code>data</code> - The data to monitor</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.dispatch" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/coordinator.rs.html#62-68">Source</a><h4 class="code-header">fn <a href="#tymethod.dispatch" class="fn">dispatch</a>(
+    &amp;self,
+    tx: Transaction,
+    speedup: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;SpeedupData&gt;,
+    context: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+    block_height: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;BlockHeight&gt;,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;</h4></section></summary><div class="docblock"><p>Dispatches a transaction to the Bitcoin network</p>
+<h5 id="arguments-1"><a class="doc-anchor" href="#arguments-1">§</a>Arguments</h5>
+<ul>
+<li><code>tx</code> - The Bitcoin transaction to dispatch</li>
+<li><code>speedup</code> - Speed up information for the transaction (None means it should not be speed up)</li>
+<li><code>context</code> - Additional context information for the transaction to be returned in news</li>
+<li><code>block_height</code> - Block height to dispatch the transaction (None means now)</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.cancel" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/coordinator.rs.html#76">Source</a><h4 class="code-header">fn <a href="#tymethod.cancel" class="fn">cancel</a>(&amp;self, data: <a class="enum" href="../enum.TypesToMonitor.html" title="enum bitcoin_coordinator::TypesToMonitor">TypesToMonitor</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;</h4></section></summary><div class="docblock"><p>Cancels the monitor and the dispatch of a type of data
+This method removes the monitor and the dispatch from the coordinator’s store.
+Which means that the data will no longer be monitored.</p>
+<h5 id="arguments-2"><a class="doc-anchor" href="#arguments-2">§</a>Arguments</h5>
+<ul>
+<li><code>data</code> - The data to cancel</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.add_funding" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/coordinator.rs.html#83">Source</a><h4 class="code-header">fn <a href="#tymethod.add_funding" class="fn">add_funding</a>(&amp;self, utxo: Utxo) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;</h4></section></summary><div class="docblock"><p>Registers funding information for potential transaction speed-ups
+This allows the coordinator to create child pays for parents transactions when needed</p>
+<h5 id="arguments-3"><a class="doc-anchor" href="#arguments-3">§</a>Arguments</h5>
+<ul>
+<li><code>utxo</code> - Utxo to use for speed-ups</li>
+</ul>
+</div></details><section id="tymethod.get_transaction" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/coordinator.rs.html#85">Source</a><h4 class="code-header">fn <a href="#tymethod.get_transaction" class="fn">get_transaction</a>(
+    &amp;self,
+    txid: Txid,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../struct.TransactionStatus.html" title="struct bitcoin_coordinator::TransactionStatus">TransactionStatus</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;</h4></section><details class="toggle method-toggle" open><summary><section id="tymethod.get_news" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/coordinator.rs.html#89">Source</a><h4 class="code-header">fn <a href="#tymethod.get_news" class="fn">get_news</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../types/struct.News.html" title="struct bitcoin_coordinator::types::News">News</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;</h4></section></summary><div class="docblock"><p>Retrieves news about monitored transactions
+Returns information about transaction confirmations.</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.ack_news" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/coordinator.rs.html#96">Source</a><h4 class="code-header">fn <a href="#tymethod.ack_news" class="fn">ack_news</a>(&amp;self, news: <a class="enum" href="../types/enum.AckNews.html" title="enum bitcoin_coordinator::types::AckNews">AckNews</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorError">BitcoinCoordinatorError</a>&gt;</h4></section></summary><div class="docblock"><p>Acknowledges that news has been processed
+This prevents the same news from being returned in subsequent calls to get_news()</p>
+<h5 id="arguments-4"><a class="doc-anchor" href="#arguments-4">§</a>Arguments</h5>
+<ul>
+<li><code>news</code> - The news items to acknowledge</li>
+</ul>
+</div></details></div><h2 id="implementors" class="section-header">Implementors<a href="#implementors" class="anchor">§</a></h2><div id="implementors-list"><section id="impl-BitcoinCoordinatorApi-for-BitcoinCoordinator" class="impl"><a class="src rightside" href="../../src/bitcoin_coordinator/coordinator.rs.html#1117-1249">Source</a><a href="#impl-BitcoinCoordinatorApi-for-BitcoinCoordinator" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.BitcoinCoordinatorApi.html" title="trait bitcoin_coordinator::coordinator::BitcoinCoordinatorApi">BitcoinCoordinatorApi</a> for <a class="struct" href="struct.BitcoinCoordinator.html" title="struct bitcoin_coordinator::coordinator::BitcoinCoordinator">BitcoinCoordinator</a></h3></section></div><script src="../../trait.impl/bitcoin_coordinator/coordinator/trait.BitcoinCoordinatorApi.js" async></script></section></div></main></body></html>

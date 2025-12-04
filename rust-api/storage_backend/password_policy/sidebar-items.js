@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["DIGITS","SPECIAL","UPPERCASE"],"struct":["PasswordPolicy"]};

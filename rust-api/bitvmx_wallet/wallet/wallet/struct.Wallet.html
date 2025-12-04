@@ -1,0 +1,577 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="A Bitcoin wallet instance with full functionality."><title>Wallet in bitvmx_wallet::wallet::wallet - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-46132b98.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="bitvmx_wallet" data-themes="" data-resource-suffix="" data-rustdoc-version="1.85.1 (4eb161250 2025-03-15)" data-channel="1.85.1" data-search-js="search-75f5ac3e.js" data-settings-js="settings-0f613d39.js" ><script src="../../../static.files/storage-59e33391.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"><!-- Custom styling to integrate rustdoc with BitVMX Material theme -->
+<style>
+    :root {
+        /* Override rustdoc colors to match Material blue theme */
+        --main-background-color: #ffffff;
+        --main-color: rgba(0, 0, 0, 0.87);
+        --link-color: #1a79fe;
+        --code-highlight-kw-color: #8959a8;
+        --code-highlight-kw-2-color: #1a79fe;
+        --code-highlight-trait-color: #0066d9;
+        --code-highlight-macro-color: #3e999f;
+        --code-highlight-function-color: #1a79fe;
+        --code-highlight-string-color: #718c00;
+        --code-highlight-number-color: #1a79fe;
+        --code-highlight-bool-val-color: #0066d9;
+        --code-highlight-self-color: #0066d9;
+        --code-highlight-lifetime-color: #4a9ffe;
+        --code-highlight-prelude-ty-color: #0066d9;
+        --code-highlight-comment-color: #8e908c;
+        --sidebar-background-color: #fafafa;
+        --sidebar-background-color-hover: #e3f2fd;
+        --border-color: #e0e0e0;
+        --search-result-link-focus-background-color: #e3f2fd;
+    }
+
+    /* Dark mode support */
+    [data-theme="dark"],
+    body.dark-mode {
+        --main-background-color: #1e1e1e;
+        --main-color: rgba(255, 255, 255, 0.87);
+        --link-color: #4a9ffe;
+        --code-highlight-kw-color: #b388ff;
+        --code-highlight-kw-2-color: #4a9ffe;
+        --code-highlight-trait-color: #6ab0ff;
+        --code-highlight-macro-color: #4db6ac;
+        --code-highlight-function-color: #4a9ffe;
+        --code-highlight-string-color: #81c784;
+        --code-highlight-number-color: #4a9ffe;
+        --code-highlight-bool-val-color: #6ab0ff;
+        --code-highlight-self-color: #6ab0ff;
+        --code-highlight-lifetime-color: #4a9ffe;
+        --code-highlight-prelude-ty-color: #6ab0ff;
+        --code-highlight-comment-color: #9e9e9e;
+        --sidebar-background-color: #252525;
+        --sidebar-background-color-hover: #1a3d5f;
+        --border-color: #404040;
+        --search-result-link-focus-background-color: #1a3d5f;
+    }
+
+    /* Make links more prominent */
+    a {
+        color: var(--link-color);
+    }
+
+    a:hover {
+        color: var(--link-color);
+        text-decoration: underline;
+    }
+
+    /* Style the top navigation bar */
+    nav.sidebar {
+        border-right: 1px solid var(--border-color);
+    }
+
+    /* Improve code block styling */
+    pre.rust {
+        background-color: var(--main-background-color);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+
+    /* Enhance search results */
+    .search-results a {
+        color: var(--link-color);
+    }
+
+    .search-results a:hover,
+    .search-results a:focus {
+        background-color: var(--search-result-link-focus-background-color);
+    }
+</style>
+
+</head><body class="rustdoc struct"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../../bitvmx_wallet/index.html">bitvmx_<wbr>wallet</a><span class="version">0.0.2</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Wallet</a></h2><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#key-features" title="Key Features">Key Features</a></li><li><a href="#examples" title="Examples">Examples</a></li></ul><h3><a href="#fields">Fields</a></h3><ul class="block structfield"><li><a href="#structfield.bdk_wallet" title="bdk_wallet">bdk_wallet</a></li><li><a href="#structfield.is_ready" title="is_ready">is_ready</a></li><li><a href="#structfield.name" title="name">name</a></li><li><a href="#structfield.network" title="network">network</a></li><li><a href="#structfield.public_key" title="public_key">public_key</a></li><li><a href="#structfield.rpc_client" title="rpc_client">rpc_client</a></li><li><a href="#structfield.start_height" title="start_height">start_height</a></li></ul><h3><a href="#implementations">Methods</a></h3><ul class="block method"><li><a href="#method.apply_unconfirmed_txs" title="apply_unconfirmed_txs">apply_unconfirmed_txs</a></li><li><a href="#method.balance" title="balance">balance</a></li><li><a href="#method.build_tx" title="build_tx">build_tx</a></li><li><a href="#method.cancel_tx" title="cancel_tx">cancel_tx</a></li><li><a href="#method.create_tx" title="create_tx">create_tx</a></li><li><a href="#method.from_config" title="from_config">from_config</a></li><li><a href="#method.from_derive_keypair" title="from_derive_keypair">from_derive_keypair</a></li><li><a href="#method.from_key_manager" title="from_key_manager">from_key_manager</a></li><li><a href="#method.from_partial_keys" title="from_partial_keys">from_partial_keys</a></li><li><a href="#method.from_private_key" title="from_private_key">from_private_key</a></li><li><a href="#method.get_wallet_tx" title="get_wallet_tx">get_wallet_tx</a></li><li><a href="#method.list_unspent" title="list_unspent">list_unspent</a></li><li><a href="#method.new" title="new">new</a></li><li><a href="#method.receive_address" title="receive_address">receive_address</a></li><li><a href="#method.send_funds" title="send_funds">send_funds</a></li><li><a href="#method.send_transaction" title="send_transaction">send_transaction</a></li><li><a href="#method.sign" title="sign">sign</a></li><li><a href="#method.sync_block" title="sync_block">sync_block</a></li><li><a href="#method.sync_mempool" title="sync_mempool">sync_mempool</a></li><li><a href="#method.sync_wallet" title="sync_wallet">sync_wallet</a></li><li><a href="#method.sync_wallet_multi_thread" title="sync_wallet_multi_thread">sync_wallet_multi_thread</a></li><li><a href="#method.tick" title="tick">tick</a></li><li><a href="#method.update_with_tx" title="update_with_tx">update_with_tx</a></li></ul><h3><a href="#trait-implementations">Trait Implementations</a></h3><ul class="block trait-implementation"><li><a href="#impl-Display-for-Wallet" title="Display">Display</a></li><li><a href="#impl-RegtestWallet-for-Wallet" title="RegtestWallet">RegtestWallet</a></li></ul><h3><a href="#synthetic-implementations">Auto Trait Implementations</a></h3><ul class="block synthetic-implementation"><li><a href="#impl-Freeze-for-Wallet" title="!Freeze">!Freeze</a></li><li><a href="#impl-RefUnwindSafe-for-Wallet" title="!RefUnwindSafe">!RefUnwindSafe</a></li><li><a href="#impl-Sync-for-Wallet" title="!Sync">!Sync</a></li><li><a href="#impl-UnwindSafe-for-Wallet" title="!UnwindSafe">!UnwindSafe</a></li><li><a href="#impl-Send-for-Wallet" title="Send">Send</a></li><li><a href="#impl-Unpin-for-Wallet" title="Unpin">Unpin</a></li></ul><h3><a href="#blanket-implementations">Blanket Implementations</a></h3><ul class="block blanket-implementation"><li><a href="#impl-Any-for-T" title="Any">Any</a></li><li><a href="#impl-Any-for-T-1" title="Any">Any</a></li><li><a href="#impl-Borrow%3CT%3E-for-T" title="Borrow&#60;T&#62;">Borrow&#60;T&#62;</a></li><li><a href="#impl-BorrowMut%3CT%3E-for-T" title="BorrowMut&#60;T&#62;">BorrowMut&#60;T&#62;</a></li><li><a href="#impl-From%3CT%3E-for-T" title="From&#60;T&#62;">From&#60;T&#62;</a></li><li><a href="#impl-Instrument-for-T" title="Instrument">Instrument</a></li><li><a href="#impl-Into%3CU%3E-for-T" title="Into&#60;U&#62;">Into&#60;U&#62;</a></li><li><a href="#impl-IntoEither-for-T" title="IntoEither">IntoEither</a></li><li><a href="#impl-PolicyExt-for-T" title="PolicyExt">PolicyExt</a></li><li><a href="#impl-Same-for-T" title="Same">Same</a></li><li><a href="#impl-ToString-for-T" title="ToString">ToString</a></li><li><a href="#impl-ToStringFallible-for-T" title="ToStringFallible">ToStringFallible</a></li><li><a href="#impl-TryFrom%3CU%3E-for-T" title="TryFrom&#60;U&#62;">TryFrom&#60;U&#62;</a></li><li><a href="#impl-TryInto%3CU%3E-for-T" title="TryInto&#60;U&#62;">TryInto&#60;U&#62;</a></li><li><a href="#impl-VZip%3CV%3E-for-T" title="VZip&#60;V&#62;">VZip&#60;V&#62;</a></li><li><a href="#impl-WithSubscriber-for-T" title="WithSubscriber">WithSubscriber</a></li></ul></section><div id="rustdoc-modnav"><h2><a href="index.html">In bitvmx_<wbr>wallet::<wbr>wallet::<wbr>wallet</a></h2></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><span class="rustdoc-breadcrumbs"><a href="../../index.html">bitvmx_wallet</a>::<wbr><a href="../index.html">wallet</a>::<wbr><a href="index.html">wallet</a></span><h1>Struct <span class="struct">Wallet</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#151-175">Source</a> </span></div><pre class="rust item-decl"><code>pub struct Wallet {
+    pub network: Network,
+    pub rpc_client: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/sync/struct.Arc.html" title="struct alloc::sync::Arc">Arc</a>&lt;Client&gt;,
+    pub bdk_wallet: PersistedWallet&lt;Connection&gt;,
+    pub public_key: PublicKey,
+    pub name: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+    pub start_height: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u32.html">u32</a>,
+    pub is_ready: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.bool.html">bool</a>,
+    <span class="comment">/* private fields */</span>
+}</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>A Bitcoin wallet instance with full functionality.</p>
+<p>The <code>Wallet</code> struct provides comprehensive Bitcoin wallet functionality,
+including transaction creation, blockchain synchronization, address generation,
+and key management. It wraps the BDK wallet library and provides additional
+features specific to the BitVMX ecosystem.</p>
+<h3 id="key-features"><a class="doc-anchor" href="#key-features">§</a>Key Features</h3>
+<ul>
+<li><strong>Multiple Key Types</strong>: Support for private keys, derived keypairs, and partial private keys</li>
+<li><strong>Transaction Management</strong>: Create, sign, and broadcast Bitcoin transactions</li>
+<li><strong>Blockchain Sync</strong>: Synchronize with Bitcoin nodes for latest blockchain state</li>
+<li><strong>Address Generation</strong>: Generate receiving and change addresses</li>
+<li><strong>Persistent Storage</strong>: SQLite-based wallet state persistence</li>
+<li><strong>Regtest Support</strong>: Testing utilities for development environments</li>
+</ul>
+<h3 id="examples"><a class="doc-anchor" href="#examples">§</a>Examples</h3>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>bitvmx_wallet::{Wallet, wallet::{config::WalletConfig, errors::WalletError}};
+<span class="kw">use </span>bitvmx_bitcoin_rpc::rpc_config::RpcConfig;
+<span class="kw">use </span>bitcoin::Network;
+
+    <span class="comment">// Create a wallet from a private key with change descriptor
+    // Change descriptors allow the wallet to use trusted unconfirmed UTXOs
+    </span><span class="kw">let </span><span class="kw-2">mut </span>wallet = Wallet::from_private_key(
+        rpc_config,
+        wallet_config,
+        <span class="string">"L4rK1yDtCWekvXuE6oXD9jCYgFNVs3VqHcVfJ9LRZdamizmv6Q6o"</span>, <span class="comment">// receive key
+        </span><span class="prelude-val">Some</span>(<span class="string">"KxJk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8"</span>), <span class="comment">// change key - must be different from receive key
+    </span>)<span class="question-mark">?</span>;
+
+    <span class="comment">// Sync with the blockchain
+    </span>wallet.sync_wallet()<span class="question-mark">?</span>;
+
+    <span class="comment">// Get wallet balance
+    </span><span class="kw">let </span>balance = wallet.balance();
+    <span class="macro">println!</span>(<span class="string">"Balance: {} sats"</span>, balance.confirmed);
+
+    <span class="comment">// Generate a receiving address
+    </span><span class="kw">let </span>address = wallet.receive_address()<span class="question-mark">?</span>;
+    <span class="macro">println!</span>(<span class="string">"Receive address: {}"</span>, address);
+
+    <span class="comment">// Send a transaction
+    </span><span class="kw">let </span>tx = wallet.send_funds(
+        bitvmx_wallet::Destination::Address(<span class="string">"bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh"</span>.to_string(), <span class="number">100000</span>),
+        <span class="prelude-val">Some</span>(<span class="number">5</span>), <span class="comment">// 5 sat/vB fee rate
+    </span>)<span class="question-mark">?</span>;
+    <span class="macro">println!</span>(<span class="string">"Transaction sent: {}"</span>, tx.compute_txid());
+}</code></pre></div>
+</div></details><h2 id="fields" class="fields section-header">Fields<a href="#fields" class="anchor">§</a></h2><span id="structfield.network" class="structfield section-header"><a href="#structfield.network" class="anchor field">§</a><code>network: Network</code></span><div class="docblock"><p>The Bitcoin network this wallet operates on (mainnet, testnet, or regtest).</p>
+</div><span id="structfield.rpc_client" class="structfield section-header"><a href="#structfield.rpc_client" class="anchor field">§</a><code>rpc_client: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/sync/struct.Arc.html" title="struct alloc::sync::Arc">Arc</a>&lt;Client&gt;</code></span><div class="docblock"><p>RPC client for communicating with the Bitcoin Core node.</p>
+</div><span id="structfield.bdk_wallet" class="structfield section-header"><a href="#structfield.bdk_wallet" class="anchor field">§</a><code>bdk_wallet: PersistedWallet&lt;Connection&gt;</code></span><div class="docblock"><p>The underlying BDK wallet instance.</p>
+</div><span id="structfield.public_key" class="structfield section-header"><a href="#structfield.public_key" class="anchor field">§</a><code>public_key: PublicKey</code></span><div class="docblock"><p>The public key associated with this wallet.</p>
+</div><span id="structfield.name" class="structfield section-header"><a href="#structfield.name" class="anchor field">§</a><code>name: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><div class="docblock"><p>The name/identifier of this wallet.</p>
+</div><span id="structfield.start_height" class="structfield section-header"><a href="#structfield.start_height" class="anchor field">§</a><code>start_height: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u32.html">u32</a></code></span><div class="docblock"><p>The starting block height for wallet synchronization.</p>
+</div><span id="structfield.is_ready" class="structfield section-header"><a href="#structfield.is_ready" class="anchor field">§</a><code>is_ready: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.bool.html">bool</a></code></span><div class="docblock"><p>Whether the wallet has completed initial synchronization.</p>
+</div><h2 id="implementations" class="section-header">Implementations<a href="#implementations" class="anchor">§</a></h2><div id="implementations-list"><details class="toggle implementors-toggle" open><summary><section id="impl-Wallet" class="impl"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#183-1326">Source</a><a href="#impl-Wallet" class="anchor">§</a><h3 class="code-header">impl <a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a></h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.from_key_manager" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#237-258">Source</a><h4 class="code-header">pub fn <a href="#method.from_key_manager" class="fn">from_key_manager</a>(
+    bitcoin_config: RpcConfig,
+    wallet_config: <a class="struct" href="../config/struct.WalletConfig.html" title="struct bitvmx_wallet::wallet::config::WalletConfig">WalletConfig</a>,
+    key_manager: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/rc/struct.Rc.html" title="struct alloc::rc::Rc">Rc</a>&lt;KeyManager&gt;,
+    public_key: &amp;PublicKey,
+    change_public_key: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;PublicKey&gt;,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Creates a wallet from a public key by retrieving the private key from the key manager.</p>
+<p>This constructor is useful when you have a public key and want to create a wallet
+using the corresponding private key stored in the key manager.</p>
+<h5 id="arguments"><a class="doc-anchor" href="#arguments">§</a>Arguments</h5>
+<ul>
+<li><code>bitcoin_config</code> - Bitcoin network and RPC configuration</li>
+<li><code>wallet_config</code> - Wallet-specific configuration settings</li>
+<li><code>key_manager</code> - Key manager instance for key retrieval</li>
+<li><code>public_key</code> - The public key to use for wallet creation</li>
+<li><code>change_public_key</code> - Optional public key for change addresses</li>
+</ul>
+<h5 id="returns"><a class="doc-anchor" href="#returns">§</a>Returns</h5>
+<p>A <code>Result</code> containing the new <code>Wallet</code> instance or an error.</p>
+<h5 id="notes"><a class="doc-anchor" href="#notes">§</a>Notes</h5>
+<p>If no change public key is provided, the wallet will be a single descriptor wallet
+and won’t be able to spend trusted unconfirmed UTXOs.</p>
+<h5 id="example"><a class="doc-anchor" href="#example">§</a>Example</h5>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>wallet_config = WalletConfig::new(<span class="string">"/tmp/wallet.db"</span>.to_string(), <span class="prelude-val">None</span>, <span class="prelude-val">None</span>, <span class="prelude-val">None</span>)<span class="question-mark">?</span>;
+ <span class="comment">// Note: key_manager must be provided - this is just a placeholder for the example
+</span><span class="kw">let </span>key_manager: Rc&lt;KeyManager&gt; = <span class="macro">todo!</span>();
+<span class="kw">let </span>public_key = PublicKey::from_str(<span class="string">"02f9308a019258c31049344f85f89d5229b531c845836f99b08601f113bce036f9"</span>)<span class="question-mark">?</span>;
+<span class="kw">let </span>change_public_key = PublicKey::from_str(<span class="string">"03a34b99f22c790c4e36b2b3c2c35a36db06226e41c692fc82b8b56ac1c540c5bd"</span>)<span class="question-mark">?</span>;
+<span class="kw">let </span>wallet = Wallet::from_key_manager(
+    bitcoin_config,
+    wallet_config,
+    key_manager,
+    <span class="kw-2">&amp;</span>public_key,
+    <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>change_public_key),
+)<span class="question-mark">?</span>;</code></pre></div>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.from_derive_keypair" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#316-341">Source</a><h4 class="code-header">pub fn <a href="#method.from_derive_keypair" class="fn">from_derive_keypair</a>(
+    bitcoin_config: RpcConfig,
+    wallet_config: <a class="struct" href="../config/struct.WalletConfig.html" title="struct bitvmx_wallet::wallet::config::WalletConfig">WalletConfig</a>,
+    key_manager: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/rc/struct.Rc.html" title="struct alloc::rc::Rc">Rc</a>&lt;KeyManager&gt;,
+    index: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u32.html">u32</a>,
+    change_index: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u32.html">u32</a>&gt;,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Creates a wallet by deriving a key pair from the key manager using an index.</p>
+<p>This constructor derives a new key pair from the key manager’s master key
+using the specified index, then creates a wallet with that key pair.</p>
+<h5 id="arguments-1"><a class="doc-anchor" href="#arguments-1">§</a>Arguments</h5>
+<ul>
+<li><code>bitcoin_config</code> - Bitcoin network and RPC configuration</li>
+<li><code>wallet_config</code> - Wallet-specific configuration settings</li>
+<li><code>key_manager</code> - Key manager instance for key derivation</li>
+<li><code>index</code> - The derivation index for the key pair</li>
+<li><code>change_index</code> - Optional derivation index for change addresses</li>
+</ul>
+<h5 id="returns-1"><a class="doc-anchor" href="#returns-1">§</a>Returns</h5>
+<p>A <code>Result</code> containing the new <code>Wallet</code> instance or an error.</p>
+<h5 id="notes-1"><a class="doc-anchor" href="#notes-1">§</a>Notes</h5>
+<p><strong>Important</strong>:</p>
+<ul>
+<li>If no change index is provided, the wallet will be a single descriptor wallet
+and won’t be able to spend trusted unconfirmed UTXOs. This means you cannot use unconfirmed
+transactions as inputs for new transactions, which can limit the wallet’s functionality.</li>
+<li>The change index must be different from the main key index to avoid address reuse
+and maintain proper wallet security.</li>
+</ul>
+<h5 id="example-1"><a class="doc-anchor" href="#example-1">§</a>Example</h5>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="comment">// Create wallet with change descriptor (recommended)
+// This allows using trusted unconfirmed UTXOs
+</span><span class="kw">let </span>wallet = Wallet::from_derive_keypair(
+    bitcoin_config,
+    wallet_config,
+    key_manager,
+    <span class="number">0</span>, <span class="comment">// Use index 0 for the main key
+    </span><span class="prelude-val">Some</span>(<span class="number">1</span>), <span class="comment">// Use index 1 for change addresses (must be different from main key)
+</span>)<span class="question-mark">?</span>;</code></pre></div>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.from_private_key" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#393-412">Source</a><h4 class="code-header">pub fn <a href="#method.from_private_key" class="fn">from_private_key</a>(
+    bitcoin_config: RpcConfig,
+    wallet_config: <a class="struct" href="../config/struct.WalletConfig.html" title="struct bitvmx_wallet::wallet::config::WalletConfig">WalletConfig</a>,
+    private_key: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.str.html">str</a>,
+    change_private_key: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.str.html">str</a>&gt;,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Creates a wallet from a private key and stores it in the key manager.</p>
+<p>This constructor creates a wallet using a provided private key in WIF format.
+The private key is stored in the key manager for future use.</p>
+<h5 id="arguments-2"><a class="doc-anchor" href="#arguments-2">§</a>Arguments</h5>
+<ul>
+<li><code>bitcoin_config</code> - Bitcoin network and RPC configuration</li>
+<li><code>wallet_config</code> - Wallet-specific configuration settings</li>
+<li><code>private_key</code> - Private key in WIF (Wallet Import Format)</li>
+<li><code>change_private_key</code> - Optional private key for change addresses</li>
+</ul>
+<h5 id="returns-2"><a class="doc-anchor" href="#returns-2">§</a>Returns</h5>
+<p>A <code>Result</code> containing the new <code>Wallet</code> instance or an error.</p>
+<h5 id="notes-2"><a class="doc-anchor" href="#notes-2">§</a>Notes</h5>
+<p><strong>Important</strong>:</p>
+<ul>
+<li>If no change private key is provided, the wallet will be a single descriptor wallet
+and won’t be able to spend trusted unconfirmed UTXOs. This means you cannot use unconfirmed
+transactions as inputs for new transactions, which can limit the wallet’s functionality.</li>
+<li>The change private key must be different from the receive private key to avoid address reuse
+and maintain proper wallet security.</li>
+</ul>
+<h5 id="example-2"><a class="doc-anchor" href="#example-2">§</a>Example</h5>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="comment">// Create wallet with change descriptor (recommended)
+// This allows using trusted unconfirmed UTXOs
+</span><span class="kw">let </span>wallet = Wallet::from_private_key(
+    bitcoin_config,
+    wallet_config,
+    <span class="string">"L4rK1yDtCWekvXuE6oXD9jCYgFNVs3VqHcVfJ9LRZdamizmv6Q6o"</span>, <span class="comment">// receive key
+    </span><span class="prelude-val">Some</span>(<span class="string">"KxJk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8"</span>), <span class="comment">// change key - must be different from receive key
+</span>)<span class="question-mark">?</span>;</code></pre></div>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.from_config" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#462-481">Source</a><h4 class="code-header">pub fn <a href="#method.from_config" class="fn">from_config</a>(
+    bitcoin_config: RpcConfig,
+    wallet_config: <a class="struct" href="../config/struct.WalletConfig.html" title="struct bitvmx_wallet::wallet::config::WalletConfig">WalletConfig</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Creates a wallet from configuration file settings.</p>
+<p>This constructor creates a wallet using keys specified in the wallet configuration.
+The receive key is required, while the change key is optional.</p>
+<h5 id="arguments-3"><a class="doc-anchor" href="#arguments-3">§</a>Arguments</h5>
+<ul>
+<li><code>bitcoin_config</code> - Bitcoin network and RPC configuration</li>
+<li><code>wallet_config</code> - Wallet configuration containing key information</li>
+</ul>
+<h5 id="returns-3"><a class="doc-anchor" href="#returns-3">§</a>Returns</h5>
+<p>A <code>Result</code> containing the new <code>Wallet</code> instance or an error.</p>
+<h5 id="notes-3"><a class="doc-anchor" href="#notes-3">§</a>Notes</h5>
+<ul>
+<li>Keys must be in WIF (Wallet Import Format)</li>
+<li>The receive key is required in the configuration</li>
+<li><strong>Important</strong>:
+<ul>
+<li>If no change key is provided, the wallet will be a single descriptor wallet
+and won’t be able to spend trusted unconfirmed UTXOs. This means you cannot use unconfirmed
+transactions as inputs for new transactions, which can limit the wallet’s functionality.</li>
+<li>The change key must be different from the receive key to avoid address reuse
+and maintain proper wallet security.</li>
+</ul>
+</li>
+</ul>
+<h5 id="example-3"><a class="doc-anchor" href="#example-3">§</a>Example</h5>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="comment">// Create wallet with change descriptor (recommended)
+// This allows using trusted unconfirmed UTXOs
+</span><span class="kw">let </span>wallet = Wallet::from_config(
+    bitcoin_config,
+    wallet_config, <span class="comment">// Contains receive_key and optional change_key (must be different)
+</span>)<span class="question-mark">?</span>;</code></pre></div>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.from_partial_keys" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#538-566">Source</a><h4 class="code-header">pub fn <a href="#method.from_partial_keys" class="fn">from_partial_keys</a>(
+    bitcoin_config: RpcConfig,
+    wallet_config: <a class="struct" href="../config/struct.WalletConfig.html" title="struct bitvmx_wallet::wallet::config::WalletConfig">WalletConfig</a>,
+    partial_private_keys: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;,
+    key_manager: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/rc/struct.Rc.html" title="struct alloc::rc::Rc">Rc</a>&lt;KeyManager&gt;,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Creates a wallet from partial private keys for MuSig2 multi-signature.</p>
+<p>This constructor creates a wallet using partial private keys that are combined
+to form a complete private key for MuSig2 multi-signature operations.</p>
+<h5 id="arguments-4"><a class="doc-anchor" href="#arguments-4">§</a>Arguments</h5>
+<ul>
+<li><code>bitcoin_config</code> - Bitcoin network and RPC configuration</li>
+<li><code>wallet_config</code> - Wallet-specific configuration settings</li>
+<li><code>partial_private_keys</code> - Vector of partial private keys (hex or WIF format)</li>
+<li><code>key_manager</code> - Key manager instance for key aggregation</li>
+</ul>
+<h5 id="returns-4"><a class="doc-anchor" href="#returns-4">§</a>Returns</h5>
+<p>A <code>Result</code> containing the new <code>Wallet</code> instance or an error.</p>
+<h5 id="notes-4"><a class="doc-anchor" href="#notes-4">§</a>Notes</h5>
+<ul>
+<li>Partial keys can be provided in hex format (64 characters) or WIF format (52 characters)</li>
+<li>All keys must be in the same format</li>
+<li>The keys are aggregated to form a complete private key</li>
+<li>The resulting wallet uses P2TR (Pay-to-Taproot) addresses</li>
+</ul>
+<h5 id="example-4"><a class="doc-anchor" href="#example-4">§</a>Example</h5>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>partial_keys = <span class="macro">vec!</span>[
+    <span class="string">"1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"</span>.to_string(),
+    <span class="string">"fedcba0987654321fedcba0987654321fedcba0987654321fedcba0987654321"</span>.to_string(),
+];
+
+<span class="kw">let </span>wallet = Wallet::from_partial_keys(
+    bitcoin_config,
+    wallet_config,
+    partial_keys,
+    key_manager,
+)<span class="question-mark">?</span>;</code></pre></div>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.new" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#626-686">Source</a><h4 class="code-header">pub fn <a href="#method.new" class="fn">new</a>(
+    bitcoin_config: RpcConfig,
+    wallet_config: <a class="struct" href="../config/struct.WalletConfig.html" title="struct bitvmx_wallet::wallet::config::WalletConfig">WalletConfig</a>,
+    public_key: &amp;PublicKey,
+    descriptor: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.str.html">str</a>,
+    change_descriptor: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.str.html">str</a>&gt;,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Creates a new wallet instance with initial data persisted to a SQLite database.</p>
+<p>This is the main constructor that initializes a wallet with the provided
+configuration and descriptors. The wallet data is persisted to a SQLite database
+for state management and recovery.</p>
+<h5 id="arguments-5"><a class="doc-anchor" href="#arguments-5">§</a>Arguments</h5>
+<ul>
+<li><code>bitcoin_config</code> - Bitcoin network and RPC configuration</li>
+<li><code>wallet_config</code> - Wallet-specific configuration settings</li>
+<li><code>public_key</code> - The public key associated with this wallet</li>
+<li><code>descriptor</code> - Bitcoin output descriptor for receiving addresses</li>
+<li><code>change_descriptor</code> - Optional descriptor for change addresses</li>
+</ul>
+<h5 id="returns-5"><a class="doc-anchor" href="#returns-5">§</a>Returns</h5>
+<p>A <code>Result</code> containing the new <code>Wallet</code> instance or an error.</p>
+<h5 id="notes-5"><a class="doc-anchor" href="#notes-5">§</a>Notes</h5>
+<ul>
+<li>Descriptor secret keys are not persisted to the database for security</li>
+<li><strong>Important</strong>:
+<ul>
+<li>If no change descriptor is provided, the wallet will be a single descriptor wallet
+and won’t be able to spend trusted unconfirmed UTXOs. This means you cannot use unconfirmed
+transactions as inputs for new transactions, which can limit the wallet’s functionality.</li>
+<li>The change descriptor must be different from the receive descriptor to avoid address reuse
+and maintain proper wallet security.</li>
+</ul>
+</li>
+<li>The database directory is created automatically if it doesn’t exist</li>
+</ul>
+<h5 id="example-5"><a class="doc-anchor" href="#example-5">§</a>Example</h5>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="comment">// Create wallet with change descriptor (recommended)
+// This allows using trusted unconfirmed UTXOs
+</span><span class="kw">let </span>wallet = Wallet::new(
+    bitcoin_config,
+    wallet_config,
+    <span class="kw-2">&amp;</span>public_key,
+    <span class="string">"wpkh(L4rK1yDtCWekvXuE6oXD9jCYgFNVs3VqHcVfJ9LRZdamizmv6Q6o)"</span>, <span class="comment">// receive descriptor
+    </span><span class="prelude-val">Some</span>(<span class="string">"wpkh(KxJk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8Jk8)"</span>), <span class="comment">// change descriptor - must be different from receive
+</span>)<span class="question-mark">?</span>;</code></pre></div>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.balance" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#762-764">Source</a><h4 class="code-header">pub fn <a href="#method.balance" class="fn">balance</a>(&amp;self) -&gt; Balance</h4></section></summary><div class="docblock"><p>Returns the current wallet balance.</p>
+<p>This method returns the wallet’s balance information including confirmed,
+unconfirmed, and immature balances.</p>
+<h5 id="returns-6"><a class="doc-anchor" href="#returns-6">§</a>Returns</h5>
+<p>A <code>Balance</code> struct containing the wallet’s balance information.</p>
+<h5 id="example-6"><a class="doc-anchor" href="#example-6">§</a>Example</h5>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>balance = wallet.balance();
+<span class="macro">println!</span>(<span class="string">"Confirmed: {} sats"</span>, balance.confirmed.to_sat());
+<span class="macro">println!</span>(<span class="string">"Trusted pending: {} sats"</span>, balance.trusted_pending.to_sat());
+<span class="macro">println!</span>(<span class="string">"Untrusted pending: {} sats"</span>, balance.untrusted_pending.to_sat());
+<span class="macro">println!</span>(<span class="string">"Immature: {} sats"</span>, balance.immature.to_sat());</code></pre></div>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.receive_address" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#795-800">Source</a><h4 class="code-header">pub fn <a href="#method.receive_address" class="fn">receive_address</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;Address, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Generates a new receiving address for the wallet.</p>
+<p>This method generates the next unused receiving address from the wallet’s
+external keychain. The address is marked as used and the wallet state is persisted.</p>
+<h5 id="returns-7"><a class="doc-anchor" href="#returns-7">§</a>Returns</h5>
+<p>A <code>Result</code> containing the new receiving address or an error.</p>
+<h5 id="example-7"><a class="doc-anchor" href="#example-7">§</a>Example</h5>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>address = wallet.receive_address()<span class="question-mark">?</span>;
+<span class="macro">println!</span>(<span class="string">"New receiving address: {}"</span>, address);</code></pre></div>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.create_tx" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#984-1012">Source</a><h4 class="code-header">pub fn <a href="#method.create_tx" class="fn">create_tx</a>(
+    &amp;mut self,
+    destination: <a class="enum" href="../types/enum.Destination.html" title="enum bitvmx_wallet::wallet::types::Destination">Destination</a>,
+    fee_rate: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u64.html">u64</a>&gt;,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;Transaction, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Creates a Bitcoin transaction to a specified destination without broadcasting it.</p>
+<p>This method constructs a transaction based on the provided <a href="../types/enum.Destination.html" title="enum bitvmx_wallet::wallet::types::Destination"><code>Destination</code></a>, which
+can be a single address, a P2WPKH public key, or a batch of multiple destinations.
+Unlike <a href="#method.send_funds"><code>send_funds</code></a>, this function does not broadcast the
+transaction to the Bitcoin network—it only creates and returns the transaction object.</p>
+<h5 id="arguments-6"><a class="doc-anchor" href="#arguments-6">§</a>Arguments</h5>
+<ul>
+<li><code>destination</code> - A <a href="../types/enum.Destination.html" title="enum bitvmx_wallet::wallet::types::Destination"><code>Destination</code></a> enum specifying where to send funds:
+<ul>
+<li><code>Destination::Address(String, u64)</code> — send to a raw Bitcoin address and amount (in satoshis).</li>
+<li><code>Destination::P2WPKH(PublicKey, u64)</code> — convert a public key into a P2WPKH address and send the specified amount.</li>
+<li><code>Destination::Batch(Vec&lt;Destination&gt;)</code> — recursively process a batch of multiple destinations.</li>
+</ul>
+</li>
+<li><code>fee_rate</code> - Optional fee rate in satoshis per virtual byte. If <code>None</code>,
+the wallet will use its default fee estimation.</li>
+</ul>
+<h5 id="returns-8"><a class="doc-anchor" href="#returns-8">§</a>Returns</h5>
+<p>Returns a <code>Result</code> containing:</p>
+<ul>
+<li><code>Ok(Transaction)</code> - The constructed transaction ready to be signed and broadcasted</li>
+<li><code>Err(WalletError)</code> - If address conversion fails, insufficient funds,
+invalid inputs, or other wallet operations fail</li>
+</ul>
+<h5 id="errors"><a class="doc-anchor" href="#errors">§</a>Errors</h5>
+<p>This function will return an error if:</p>
+<ul>
+<li>The provided address is invalid</li>
+<li>A public key cannot be converted into a valid P2WPKH address</li>
+<li>The wallet does not have sufficient funds to cover the amounts and fees</li>
+<li>The batch destination contains invalid entries</li>
+<li>The fee rate is invalid</li>
+</ul>
+<h5 id="example-8"><a class="doc-anchor" href="#example-8">§</a>Example</h5>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="comment">// Send 50,000 sats to a raw address
+</span><span class="kw">let </span>destination = Destination::Address(<span class="string">"bcrt1qxyz..."</span>.to_string(), <span class="number">50_000</span>);
+<span class="kw">let </span>tx = wallet.create_tx(destination, <span class="prelude-val">Some</span>(<span class="number">5</span>))<span class="question-mark">?</span>;
+<span class="macro">println!</span>(<span class="string">"Created transaction: {}"</span>, tx.compute_txid());
+
+<span class="comment">// Send to a P2WPKH derived from a public key
+</span><span class="kw">let </span>pubkey = PublicKey::from_str(<span class="string">"02f9308a019258c31049344f85f89d5229b531c845836f99b08601f113bce036f9"</span>)<span class="question-mark">?</span>;
+<span class="kw">let </span>destination = Destination::P2WPKH(pubkey, <span class="number">75_000</span>);
+<span class="kw">let </span>tx = wallet.create_tx(destination, <span class="prelude-val">None</span>)<span class="question-mark">?</span>;
+<span class="macro">println!</span>(<span class="string">"Created P2WPKH transaction: {}"</span>, tx.compute_txid());
+
+<span class="comment">// Send to multiple destinations in a batch
+</span><span class="kw">let </span>batch = <span class="macro">vec!</span>[
+    Destination::Address(<span class="string">"bcrt1qabc..."</span>.to_string(), <span class="number">25_000</span>),
+    Destination::P2WPKH(pubkey, <span class="number">10_000</span>),
+];
+<span class="kw">let </span>destination = Destination::Batch(batch);
+<span class="kw">let </span>tx = wallet.create_tx(destination, <span class="prelude-val">Some</span>(<span class="number">3</span>))<span class="question-mark">?</span>;
+<span class="macro">println!</span>(<span class="string">"Created batch transaction: {}"</span>, tx.compute_txid());</code></pre></div>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.send_funds" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1086-1099">Source</a><h4 class="code-header">pub fn <a href="#method.send_funds" class="fn">send_funds</a>(
+    &amp;mut self,
+    destination: <a class="enum" href="../types/enum.Destination.html" title="enum bitvmx_wallet::wallet::types::Destination">Destination</a>,
+    fee_rate: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u64.html">u64</a>&gt;,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;Transaction, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Creates and broadcasts a Bitcoin transaction to the specified destination.</p>
+<p>This method builds a transaction based on the provided <a href="../types/enum.Destination.html" title="enum bitvmx_wallet::wallet::types::Destination"><code>Destination</code></a>, signs it
+with the wallet’s available UTXOs, and broadcasts it to the Bitcoin network.
+Unlike <a href="#method.create_tx"><code>create_tx</code></a>, which only constructs a transaction object,
+this function finalizes and submits the transaction for propagation.</p>
+<h5 id="arguments-7"><a class="doc-anchor" href="#arguments-7">§</a>Arguments</h5>
+<ul>
+<li><code>destination</code> - A <a href="../types/enum.Destination.html" title="enum bitvmx_wallet::wallet::types::Destination"><code>Destination</code></a> enum specifying where to send funds:
+<ul>
+<li><code>Destination::Address(String, u64)</code> — send to a raw Bitcoin address and amount (in satoshis).</li>
+<li><code>Destination::P2WPKH(PublicKey, u64)</code> — convert a public key into a P2WPKH address and send the specified amount.</li>
+<li><code>Destination::Batch(Vec&lt;Destination&gt;)</code> — recursively process a batch of multiple destinations.</li>
+</ul>
+</li>
+<li><code>fee_rate</code> - Optional fee rate in satoshis per virtual byte. If <code>None</code>,
+the wallet will use its default fee estimation.</li>
+</ul>
+<h5 id="returns-9"><a class="doc-anchor" href="#returns-9">§</a>Returns</h5>
+<p>Returns a <code>Result</code> containing:</p>
+<ul>
+<li><code>Ok(Transaction)</code> - The successfully created, signed, and broadcasted transaction</li>
+<li><code>Err(WalletError)</code> - If transaction creation, signing, or broadcasting fails</li>
+</ul>
+<h5 id="errors-1"><a class="doc-anchor" href="#errors-1">§</a>Errors</h5>
+<p>This function will return an error if:</p>
+<ul>
+<li>The provided address is invalid</li>
+<li>A public key cannot be converted into a valid P2WPKH address</li>
+<li>The wallet does not have sufficient funds to cover the amounts and fees</li>
+<li>The batch destination contains invalid entries</li>
+<li>Transaction signing fails</li>
+<li>Broadcasting to the network fails</li>
+</ul>
+<h5 id="example-9"><a class="doc-anchor" href="#example-9">§</a>Example</h5>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="comment">// Send 50,000 sats to a raw address and broadcast it
+</span><span class="kw">let </span>destination = Destination::Address(<span class="string">"bcrt1qxyz..."</span>.to_string(), <span class="number">50_000</span>);
+<span class="kw">let </span>tx = wallet.send_funds(destination, <span class="prelude-val">Some</span>(<span class="number">5</span>))<span class="question-mark">?</span>;
+<span class="macro">println!</span>(<span class="string">"Broadcasted transaction: {}"</span>, tx.compute_txid());
+
+<span class="comment">// Send 75,000 sats to a P2WPKH derived from a public key
+</span><span class="kw">let </span>pubkey = PublicKey::from_str(<span class="string">"02f9308a019258c31049344f85f89d5229b531c845836f99b08601f113bce036f9"</span>)<span class="question-mark">?</span>;
+<span class="kw">let </span>destination = Destination::P2WPKH(pubkey, <span class="number">75_000</span>);
+<span class="kw">let </span>tx = wallet.send_funds(destination, <span class="prelude-val">None</span>)<span class="question-mark">?</span>;
+<span class="macro">println!</span>(<span class="string">"Broadcasted P2WPKH transaction: {}"</span>, tx.compute_txid());
+
+<span class="comment">// Send to multiple destinations in a batch
+</span><span class="kw">let </span>batch = <span class="macro">vec!</span>[
+    Destination::Address(<span class="string">"bcrt1qabc..."</span>.to_string(), <span class="number">25_000</span>),
+    Destination::P2WPKH(pubkey, <span class="number">10_000</span>),
+];
+<span class="kw">let </span>destination = Destination::Batch(batch);
+<span class="kw">let </span>tx = wallet.send_funds(destination, <span class="prelude-val">Some</span>(<span class="number">3</span>))<span class="question-mark">?</span>;
+<span class="macro">println!</span>(<span class="string">"Broadcasted batch transaction: {}"</span>, tx.compute_txid());</code></pre></div>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.send_transaction" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1102-1109">Source</a><h4 class="code-header">pub fn <a href="#method.send_transaction" class="fn">send_transaction</a>(
+    &amp;mut self,
+    tx: &amp;Transaction,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;Txid, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Send a transaction and update the wallet with the unconfirmed transaction</p>
+</div></details><section id="method.update_with_tx" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1111-1117">Source</a><h4 class="code-header">pub fn <a href="#method.update_with_tx" class="fn">update_with_tx</a>(&amp;mut self, tx: &amp;Transaction) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section><section id="method.get_wallet_tx" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1119-1122">Source</a><h4 class="code-header">pub fn <a href="#method.get_wallet_tx" class="fn">get_wallet_tx</a>(
+    &amp;self,
+    txid: Txid,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;WalletTx&lt;'_&gt;&gt;, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section><section id="method.list_unspent" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1124-1127">Source</a><h4 class="code-header">pub fn <a href="#method.list_unspent" class="fn">list_unspent</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;LocalOutput&gt;, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section><section id="method.cancel_tx" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1129-1133">Source</a><h4 class="code-header">pub fn <a href="#method.cancel_tx" class="fn">cancel_tx</a>(&amp;mut self, tx: &amp;Transaction) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section><section id="method.build_tx" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1135-1137">Source</a><h4 class="code-header">pub fn <a href="#method.build_tx" class="fn">build_tx</a>(&amp;mut self) -&gt; TxBuilder&lt;'_, DefaultCoinSelectionAlgorithm&gt;</h4></section><section id="method.sign" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1140-1147">Source</a><h4 class="code-header">pub fn <a href="#method.sign" class="fn">sign</a>(
+    &amp;mut self,
+    psbt: &amp;mut Psbt,
+    sign_options: SignOptions,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.bool.html">bool</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section><section id="method.tick" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1149-1163">Source</a><h4 class="code-header">pub fn <a href="#method.tick" class="fn">tick</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u64.html">u64</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section><section id="method.sync_block" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1165-1177">Source</a><h4 class="code-header">pub fn <a href="#method.sync_block" class="fn">sync_block</a>(
+    &amp;mut self,
+    block_emission: BlockEvent&lt;Block&gt;,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section><section id="method.sync_mempool" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1179-1186">Source</a><h4 class="code-header">pub fn <a href="#method.sync_mempool" class="fn">sync_mempool</a>(
+    &amp;mut self,
+    mempool_emission: MempoolEvent,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section><section id="method.apply_unconfirmed_txs" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1188-1201">Source</a><h4 class="code-header">pub fn <a href="#method.apply_unconfirmed_txs" class="fn">apply_unconfirmed_txs</a>(
+    &amp;mut self,
+    transactions: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;Transaction&gt;,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section><section id="method.sync_wallet" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1203-1233">Source</a><h4 class="code-header">pub fn <a href="#method.sync_wallet" class="fn">sync_wallet</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u64.html">u64</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section><section id="method.sync_wallet_multi_thread" class="method"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1235-1297">Source</a><h4 class="code-header">pub fn <a href="#method.sync_wallet_multi_thread" class="fn">sync_wallet_multi_thread</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u64.html">u64</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></div></details></div><h2 id="trait-implementations" class="section-header">Trait Implementations<a href="#trait-implementations" class="anchor">§</a></h2><div id="trait-implementations-list"><details class="toggle implementors-toggle" open><summary><section id="impl-Display-for-Wallet" class="impl"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#177-181">Source</a><a href="#impl-Display-for-Wallet" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a></h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.fmt" class="method trait-impl"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#178-180">Source</a><a href="#method.fmt" class="anchor">§</a><h4 class="code-header">fn <a href="https://doc.rust-lang.org/1.85.1/core/fmt/trait.Display.html#tymethod.fmt" class="fn">fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/1.85.1/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>&lt;'_&gt;) -&gt; <a class="type" href="https://doc.rust-lang.org/1.85.1/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></h4></section></summary><div class='docblock'>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/1.85.1/core/fmt/trait.Display.html#tymethod.fmt">Read more</a></div></details></div></details><details class="toggle implementors-toggle" open><summary><section id="impl-RegtestWallet-for-Wallet" class="impl"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1369-1484">Source</a><a href="#impl-RegtestWallet-for-Wallet" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.RegtestWallet.html" title="trait bitvmx_wallet::wallet::wallet::RegtestWallet">RegtestWallet</a> for <a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a></h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.mine_to_address" class="method trait-impl"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1396-1416">Source</a><a href="#method.mine_to_address" class="anchor">§</a><h4 class="code-header">fn <a href="trait.RegtestWallet.html#tymethod.mine_to_address" class="fn">mine_to_address</a>(
+    &amp;self,
+    num_blocks: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u64.html">u64</a>,
+    address: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.str.html">str</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;Transaction&gt;, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Generate blocks and send the coinbase reward to a specific address
+This function is only available in regtest mode</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.mine" class="method trait-impl"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1420-1425">Source</a><a href="#method.mine" class="anchor">§</a><h4 class="code-header">fn <a href="trait.RegtestWallet.html#tymethod.mine" class="fn">mine</a>(&amp;self, num_blocks: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;Transaction&gt;, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Generate a specified number of blocks to a default address
+This function is only available in regtest mode</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.fund" class="method trait-impl"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1429-1441">Source</a><a href="#method.fund" class="anchor">§</a><h4 class="code-header">fn <a href="trait.RegtestWallet.html#tymethod.fund" class="fn">fund</a>(&amp;mut self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Fund the wallet with 150 BTC
+This function is only available in regtest mode</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.fund_address" class="method trait-impl"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1445-1456">Source</a><a href="#method.fund_address" class="anchor">§</a><h4 class="code-header">fn <a href="trait.RegtestWallet.html#tymethod.fund_address" class="fn">fund_address</a>(
+    &amp;mut self,
+    to_address: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.str.html">str</a>,
+    amount: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u64.html">u64</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;Transaction, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section><span class="item-info"><div class="stab deprecated"><span class="emoji">👎</span><span>Deprecated since 0.2.0: Use <code>fund_destination</code> instead</span></div></span></summary><div class="docblock"><p>Send funds to a specific address and mines 1 block
+This function is only available in regtest mode</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.fund_destination" class="method trait-impl"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1460-1471">Source</a><a href="#method.fund_destination" class="anchor">§</a><h4 class="code-header">fn <a href="trait.RegtestWallet.html#tymethod.fund_destination" class="fn">fund_destination</a>(
+    &amp;mut self,
+    destination: <a class="enum" href="../types/enum.Destination.html" title="enum bitvmx_wallet::wallet::types::Destination">Destination</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;Transaction, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Send funds to a specific destination and mines 1 block
+This function is only available in regtest mode</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.clear_db" class="method trait-impl"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1475-1483">Source</a><a href="#method.clear_db" class="anchor">§</a><h4 class="code-header">fn <a href="trait.RegtestWallet.html#tymethod.clear_db" class="fn">clear_db</a>(wallet_config: &amp;<a class="struct" href="../config/struct.WalletConfig.html" title="struct bitvmx_wallet::wallet::config::WalletConfig">WalletConfig</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class="docblock"><p>Clear the database
+This function is only available in regtest mode</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.check_network" class="method trait-impl"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1370-1377">Source</a><a href="#method.check_network" class="anchor">§</a><h4 class="code-header">fn <a href="trait.RegtestWallet.html#tymethod.check_network" class="fn">check_network</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class='docblock'>Check if the wallet is in regtest mode</div></details><details class="toggle method-toggle" open><summary><section id="method.export_wallet" class="method trait-impl"><a class="src rightside" href="../../../src/bitvmx_wallet/wallet/wallet.rs.html#1380-1392">Source</a><a href="#method.export_wallet" class="anchor">§</a><h4 class="code-header">fn <a href="trait.RegtestWallet.html#tymethod.export_wallet" class="fn">export_wallet</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;(<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;, <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;), <a class="enum" href="../errors/enum.WalletError.html" title="enum bitvmx_wallet::wallet::errors::WalletError">WalletError</a>&gt;</h4></section></summary><div class='docblock'>Export the wallet</div></details></div></details></div><h2 id="synthetic-implementations" class="section-header">Auto Trait Implementations<a href="#synthetic-implementations" class="anchor">§</a></h2><div id="synthetic-implementations-list"><section id="impl-Freeze-for-Wallet" class="impl"><a href="#impl-Freeze-for-Wallet" class="anchor">§</a><h3 class="code-header">impl !<a class="trait" href="https://doc.rust-lang.org/1.85.1/core/marker/trait.Freeze.html" title="trait core::marker::Freeze">Freeze</a> for <a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a></h3></section><section id="impl-RefUnwindSafe-for-Wallet" class="impl"><a href="#impl-RefUnwindSafe-for-Wallet" class="anchor">§</a><h3 class="code-header">impl !<a class="trait" href="https://doc.rust-lang.org/1.85.1/core/panic/unwind_safe/trait.RefUnwindSafe.html" title="trait core::panic::unwind_safe::RefUnwindSafe">RefUnwindSafe</a> for <a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a></h3></section><section id="impl-Send-for-Wallet" class="impl"><a href="#impl-Send-for-Wallet" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a></h3></section><section id="impl-Sync-for-Wallet" class="impl"><a href="#impl-Sync-for-Wallet" class="anchor">§</a><h3 class="code-header">impl !<a class="trait" href="https://doc.rust-lang.org/1.85.1/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a></h3></section><section id="impl-Unpin-for-Wallet" class="impl"><a href="#impl-Unpin-for-Wallet" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/marker/trait.Unpin.html" title="trait core::marker::Unpin">Unpin</a> for <a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a></h3></section><section id="impl-UnwindSafe-for-Wallet" class="impl"><a href="#impl-UnwindSafe-for-Wallet" class="anchor">§</a><h3 class="code-header">impl !<a class="trait" href="https://doc.rust-lang.org/1.85.1/core/panic/unwind_safe/trait.UnwindSafe.html" title="trait core::panic::unwind_safe::UnwindSafe">UnwindSafe</a> for <a class="struct" href="struct.Wallet.html" title="struct bitvmx_wallet::wallet::wallet::Wallet">Wallet</a></h3></section></div><h2 id="blanket-implementations" class="section-header">Blanket Implementations<a href="#blanket-implementations" class="anchor">§</a></h2><div id="blanket-implementations-list"><details class="toggle implementors-toggle"><summary><section id="impl-Any-for-T" class="impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/any.rs.html#138">Source</a><a href="#impl-Any-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T&gt; <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/any/trait.Any.html" title="trait core::any::Any">Any</a> for T<div class="where">where
+    T: 'static + ?<a class="trait" href="https://doc.rust-lang.org/1.85.1/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,</div></h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.type_id" class="method trait-impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/any.rs.html#139">Source</a><a href="#method.type_id" class="anchor">§</a><h4 class="code-header">fn <a href="https://doc.rust-lang.org/1.85.1/core/any/trait.Any.html#tymethod.type_id" class="fn">type_id</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.85.1/core/any/struct.TypeId.html" title="struct core::any::TypeId">TypeId</a></h4></section></summary><div class='docblock'>Gets the <code>TypeId</code> of <code>self</code>. <a href="https://doc.rust-lang.org/1.85.1/core/any/trait.Any.html#tymethod.type_id">Read more</a></div></details></div></details><details class="toggle implementors-toggle"><summary><section id="impl-Any-for-T-1" class="impl"><a href="#impl-Any-for-T-1" class="anchor">§</a><h3 class="code-header">impl&lt;T&gt; Any for T<div class="where">where
+    T: <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/any/trait.Any.html" title="trait core::any::Any">Any</a>,</div></h3></section></summary><div class="impl-items"><section id="method.into_any" class="method trait-impl"><a href="#method.into_any" class="anchor">§</a><h4 class="code-header">fn <a class="fn">into_any</a>(self: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;T&gt;) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/any/trait.Any.html" title="trait core::any::Any">Any</a>&gt;</h4></section><section id="method.into_any_rc" class="method trait-impl"><a href="#method.into_any_rc" class="anchor">§</a><h4 class="code-header">fn <a class="fn">into_any_rc</a>(self: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/rc/struct.Rc.html" title="struct alloc::rc::Rc">Rc</a>&lt;T&gt;) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/rc/struct.Rc.html" title="struct alloc::rc::Rc">Rc</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/any/trait.Any.html" title="trait core::any::Any">Any</a>&gt;</h4></section><section id="method.type_name" class="method trait-impl"><a href="#method.type_name" class="anchor">§</a><h4 class="code-header">fn <a class="fn">type_name</a>(&amp;self) -&gt; &amp;'static <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.str.html">str</a></h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-Borrow%3CT%3E-for-T" class="impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/borrow.rs.html#209">Source</a><a href="#impl-Borrow%3CT%3E-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T&gt; <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/borrow/trait.Borrow.html" title="trait core::borrow::Borrow">Borrow</a>&lt;T&gt; for T<div class="where">where
+    T: ?<a class="trait" href="https://doc.rust-lang.org/1.85.1/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,</div></h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.borrow" class="method trait-impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/borrow.rs.html#211">Source</a><a href="#method.borrow" class="anchor">§</a><h4 class="code-header">fn <a href="https://doc.rust-lang.org/1.85.1/core/borrow/trait.Borrow.html#tymethod.borrow" class="fn">borrow</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.reference.html">&amp;T</a></h4></section></summary><div class='docblock'>Immutably borrows from an owned value. <a href="https://doc.rust-lang.org/1.85.1/core/borrow/trait.Borrow.html#tymethod.borrow">Read more</a></div></details></div></details><details class="toggle implementors-toggle"><summary><section id="impl-BorrowMut%3CT%3E-for-T" class="impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/borrow.rs.html#217">Source</a><a href="#impl-BorrowMut%3CT%3E-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T&gt; <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/borrow/trait.BorrowMut.html" title="trait core::borrow::BorrowMut">BorrowMut</a>&lt;T&gt; for T<div class="where">where
+    T: ?<a class="trait" href="https://doc.rust-lang.org/1.85.1/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,</div></h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.borrow_mut" class="method trait-impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/borrow.rs.html#218">Source</a><a href="#method.borrow_mut" class="anchor">§</a><h4 class="code-header">fn <a href="https://doc.rust-lang.org/1.85.1/core/borrow/trait.BorrowMut.html#tymethod.borrow_mut" class="fn">borrow_mut</a>(&amp;mut self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.reference.html">&amp;mut T</a></h4></section></summary><div class='docblock'>Mutably borrows from an owned value. <a href="https://doc.rust-lang.org/1.85.1/core/borrow/trait.BorrowMut.html#tymethod.borrow_mut">Read more</a></div></details></div></details><details class="toggle implementors-toggle"><summary><section id="impl-From%3CT%3E-for-T" class="impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/convert/mod.rs.html#767">Source</a><a href="#impl-From%3CT%3E-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T&gt; <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;T&gt; for T</h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.from" class="method trait-impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/convert/mod.rs.html#770">Source</a><a href="#method.from" class="anchor">§</a><h4 class="code-header">fn <a href="https://doc.rust-lang.org/1.85.1/core/convert/trait.From.html#tymethod.from" class="fn">from</a>(t: T) -&gt; T</h4></section></summary><div class="docblock"><p>Returns the argument unchanged.</p>
+</div></details></div></details><details class="toggle implementors-toggle"><summary><section id="impl-Instrument-for-T" class="impl"><a href="#impl-Instrument-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T&gt; Instrument for T</h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.instrument" class="method trait-impl"><a href="#method.instrument" class="anchor">§</a><h4 class="code-header">fn <a class="fn">instrument</a>(self, span: Span) -&gt; Instrumented&lt;Self&gt;</h4></section></summary><div class='docblock'>Instruments this type with the provided [<code>Span</code>], returning an
+<code>Instrumented</code> wrapper. <a>Read more</a></div></details><details class="toggle method-toggle" open><summary><section id="method.in_current_span" class="method trait-impl"><a href="#method.in_current_span" class="anchor">§</a><h4 class="code-header">fn <a class="fn">in_current_span</a>(self) -&gt; Instrumented&lt;Self&gt;</h4></section></summary><div class='docblock'>Instruments this type with the <a href="super::Span::current()">current</a> <a href="crate::Span"><code>Span</code></a>, returning an
+<code>Instrumented</code> wrapper. <a>Read more</a></div></details></div></details><details class="toggle implementors-toggle"><summary><section id="impl-Into%3CU%3E-for-T" class="impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/convert/mod.rs.html#750-752">Source</a><a href="#impl-Into%3CU%3E-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T, U&gt; <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;U&gt; for T<div class="where">where
+    U: <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;T&gt;,</div></h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.into" class="method trait-impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/convert/mod.rs.html#760">Source</a><a href="#method.into" class="anchor">§</a><h4 class="code-header">fn <a href="https://doc.rust-lang.org/1.85.1/core/convert/trait.Into.html#tymethod.into" class="fn">into</a>(self) -&gt; U</h4></section></summary><div class="docblock"><p>Calls <code>U::from(self)</code>.</p>
+<p>That is, this conversion is whatever the implementation of
+<code><a href="https://doc.rust-lang.org/1.85.1/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;T&gt; for U</code> chooses to do.</p>
+</div></details></div></details><details class="toggle implementors-toggle"><summary><section id="impl-IntoEither-for-T" class="impl"><a class="src rightside" href="https://docs.rs/either/1/src/either/into_either.rs.html#64">Source</a><a href="#impl-IntoEither-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T&gt; <a class="trait" href="https://docs.rs/either/1/either/into_either/trait.IntoEither.html" title="trait either::into_either::IntoEither">IntoEither</a> for T</h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.into_either" class="method trait-impl"><a class="src rightside" href="https://docs.rs/either/1/src/either/into_either.rs.html#29">Source</a><a href="#method.into_either" class="anchor">§</a><h4 class="code-header">fn <a href="https://docs.rs/either/1/either/into_either/trait.IntoEither.html#method.into_either" class="fn">into_either</a>(self, into_left: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.bool.html">bool</a>) -&gt; <a class="enum" href="https://docs.rs/either/1/either/enum.Either.html" title="enum either::Either">Either</a>&lt;Self, Self&gt;</h4></section></summary><div class='docblock'>Converts <code>self</code> into a <a href="https://docs.rs/either/1/either/enum.Either.html#variant.Left" title="variant either::Either::Left"><code>Left</code></a> variant of <a href="https://docs.rs/either/1/either/enum.Either.html" title="enum either::Either"><code>Either&lt;Self, Self&gt;</code></a>
+if <code>into_left</code> is <code>true</code>.
+Converts <code>self</code> into a <a href="https://docs.rs/either/1/either/enum.Either.html#variant.Right" title="variant either::Either::Right"><code>Right</code></a> variant of <a href="https://docs.rs/either/1/either/enum.Either.html" title="enum either::Either"><code>Either&lt;Self, Self&gt;</code></a>
+otherwise. <a href="https://docs.rs/either/1/either/into_either/trait.IntoEither.html#method.into_either">Read more</a></div></details><details class="toggle method-toggle" open><summary><section id="method.into_either_with" class="method trait-impl"><a class="src rightside" href="https://docs.rs/either/1/src/either/into_either.rs.html#55-57">Source</a><a href="#method.into_either_with" class="anchor">§</a><h4 class="code-header">fn <a href="https://docs.rs/either/1/either/into_either/trait.IntoEither.html#method.into_either_with" class="fn">into_either_with</a>&lt;F&gt;(self, into_left: F) -&gt; <a class="enum" href="https://docs.rs/either/1/either/enum.Either.html" title="enum either::Either">Either</a>&lt;Self, Self&gt;<div class="where">where
+    F: <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/ops/function/trait.FnOnce.html" title="trait core::ops::function::FnOnce">FnOnce</a>(&amp;Self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.bool.html">bool</a>,</div></h4></section></summary><div class='docblock'>Converts <code>self</code> into a <a href="https://docs.rs/either/1/either/enum.Either.html#variant.Left" title="variant either::Either::Left"><code>Left</code></a> variant of <a href="https://docs.rs/either/1/either/enum.Either.html" title="enum either::Either"><code>Either&lt;Self, Self&gt;</code></a>
+if <code>into_left(&amp;self)</code> returns <code>true</code>.
+Converts <code>self</code> into a <a href="https://docs.rs/either/1/either/enum.Either.html#variant.Right" title="variant either::Either::Right"><code>Right</code></a> variant of <a href="https://docs.rs/either/1/either/enum.Either.html" title="enum either::Either"><code>Either&lt;Self, Self&gt;</code></a>
+otherwise. <a href="https://docs.rs/either/1/either/into_either/trait.IntoEither.html#method.into_either_with">Read more</a></div></details></div></details><details class="toggle implementors-toggle"><summary><section id="impl-PolicyExt-for-T" class="impl"><a href="#impl-PolicyExt-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T&gt; PolicyExt for T<div class="where">where
+    T: ?<a class="trait" href="https://doc.rust-lang.org/1.85.1/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,</div></h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.and" class="method trait-impl"><a href="#method.and" class="anchor">§</a><h4 class="code-header">fn <a class="fn">and</a>&lt;P, B, E&gt;(self, other: P) -&gt; And&lt;T, P&gt;<div class="where">where
+    T: Policy&lt;B, E&gt;,
+    P: Policy&lt;B, E&gt;,</div></h4></section></summary><div class='docblock'>Create a new <code>Policy</code> that returns [<code>Action::Follow</code>] only if <code>self</code> and <code>other</code> return
+<code>Action::Follow</code>. <a>Read more</a></div></details><details class="toggle method-toggle" open><summary><section id="method.or" class="method trait-impl"><a href="#method.or" class="anchor">§</a><h4 class="code-header">fn <a class="fn">or</a>&lt;P, B, E&gt;(self, other: P) -&gt; Or&lt;T, P&gt;<div class="where">where
+    T: Policy&lt;B, E&gt;,
+    P: Policy&lt;B, E&gt;,</div></h4></section></summary><div class='docblock'>Create a new <code>Policy</code> that returns [<code>Action::Follow</code>] if either <code>self</code> or <code>other</code> returns
+<code>Action::Follow</code>. <a>Read more</a></div></details></div></details><details class="toggle implementors-toggle"><summary><section id="impl-Same-for-T" class="impl"><a class="src rightside" href="https://docs.rs/typenum/1.19.0/src/typenum/type_operators.rs.html#34">Source</a><a href="#impl-Same-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T&gt; <a class="trait" href="https://docs.rs/typenum/1.19.0/typenum/type_operators/trait.Same.html" title="trait typenum::type_operators::Same">Same</a> for T</h3></section></summary><div class="impl-items"><details class="toggle" open><summary><section id="associatedtype.Output" class="associatedtype trait-impl"><a class="src rightside" href="https://docs.rs/typenum/1.19.0/src/typenum/type_operators.rs.html#35">Source</a><a href="#associatedtype.Output" class="anchor">§</a><h4 class="code-header">type <a href="https://docs.rs/typenum/1.19.0/typenum/type_operators/trait.Same.html#associatedtype.Output" class="associatedtype">Output</a> = T</h4></section></summary><div class='docblock'>Should always be <code>Self</code></div></details></div></details><details class="toggle implementors-toggle"><summary><section id="impl-ToString-for-T" class="impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/alloc/string.rs.html#2677">Source</a><a href="#impl-ToString-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T&gt; <a class="trait" href="https://doc.rust-lang.org/1.85.1/alloc/string/trait.ToString.html" title="trait alloc::string::ToString">ToString</a> for T<div class="where">where
+    T: <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> + ?<a class="trait" href="https://doc.rust-lang.org/1.85.1/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,</div></h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.to_string" class="method trait-impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/alloc/string.rs.html#2679">Source</a><a href="#method.to_string" class="anchor">§</a><h4 class="code-header">fn <a href="https://doc.rust-lang.org/1.85.1/alloc/string/trait.ToString.html#tymethod.to_string" class="fn">to_string</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></h4></section></summary><div class='docblock'>Converts the given value to a <code>String</code>. <a href="https://doc.rust-lang.org/1.85.1/alloc/string/trait.ToString.html#tymethod.to_string">Read more</a></div></details></div></details><details class="toggle implementors-toggle"><summary><section id="impl-ToStringFallible-for-T" class="impl"><a href="#impl-ToStringFallible-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T&gt; ToStringFallible for T<div class="where">where
+    T: <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a>,</div></h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.try_to_string" class="method trait-impl"><a href="#method.try_to_string" class="anchor">§</a><h4 class="code-header">fn <a class="fn">try_to_string</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>, <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/collections/struct.TryReserveError.html" title="struct alloc::collections::TryReserveError">TryReserveError</a>&gt;</h4></section></summary><div class="docblock"><p><a href="https://doc.rust-lang.org/1.85.1/alloc/string/trait.ToString.html#tymethod.to_string" title="method alloc::string::ToString::to_string"><code>ToString::to_string</code></a>, but without panic on OOM.</p>
+</div></details></div></details><details class="toggle implementors-toggle"><summary><section id="impl-TryFrom%3CU%3E-for-T" class="impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/convert/mod.rs.html#807-809">Source</a><a href="#impl-TryFrom%3CU%3E-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T, U&gt; <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.TryFrom.html" title="trait core::convert::TryFrom">TryFrom</a>&lt;U&gt; for T<div class="where">where
+    U: <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;T&gt;,</div></h3></section></summary><div class="impl-items"><details class="toggle" open><summary><section id="associatedtype.Error-1" class="associatedtype trait-impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/convert/mod.rs.html#811">Source</a><a href="#associatedtype.Error-1" class="anchor">§</a><h4 class="code-header">type <a href="https://doc.rust-lang.org/1.85.1/core/convert/trait.TryFrom.html#associatedtype.Error" class="associatedtype">Error</a> = <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/convert/enum.Infallible.html" title="enum core::convert::Infallible">Infallible</a></h4></section></summary><div class='docblock'>The type returned in the event of a conversion error.</div></details><details class="toggle method-toggle" open><summary><section id="method.try_from" class="method trait-impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/convert/mod.rs.html#814">Source</a><a href="#method.try_from" class="anchor">§</a><h4 class="code-header">fn <a href="https://doc.rust-lang.org/1.85.1/core/convert/trait.TryFrom.html#tymethod.try_from" class="fn">try_from</a>(value: U) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;T, &lt;T as <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.TryFrom.html" title="trait core::convert::TryFrom">TryFrom</a>&lt;U&gt;&gt;::<a class="associatedtype" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.TryFrom.html#associatedtype.Error" title="type core::convert::TryFrom::Error">Error</a>&gt;</h4></section></summary><div class='docblock'>Performs the conversion.</div></details></div></details><details class="toggle implementors-toggle"><summary><section id="impl-TryInto%3CU%3E-for-T" class="impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/convert/mod.rs.html#792-794">Source</a><a href="#impl-TryInto%3CU%3E-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T, U&gt; <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.TryInto.html" title="trait core::convert::TryInto">TryInto</a>&lt;U&gt; for T<div class="where">where
+    U: <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.TryFrom.html" title="trait core::convert::TryFrom">TryFrom</a>&lt;T&gt;,</div></h3></section></summary><div class="impl-items"><details class="toggle" open><summary><section id="associatedtype.Error" class="associatedtype trait-impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/convert/mod.rs.html#796">Source</a><a href="#associatedtype.Error" class="anchor">§</a><h4 class="code-header">type <a href="https://doc.rust-lang.org/1.85.1/core/convert/trait.TryInto.html#associatedtype.Error" class="associatedtype">Error</a> = &lt;U as <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.TryFrom.html" title="trait core::convert::TryFrom">TryFrom</a>&lt;T&gt;&gt;::<a class="associatedtype" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.TryFrom.html#associatedtype.Error" title="type core::convert::TryFrom::Error">Error</a></h4></section></summary><div class='docblock'>The type returned in the event of a conversion error.</div></details><details class="toggle method-toggle" open><summary><section id="method.try_into" class="method trait-impl"><a class="src rightside" href="https://doc.rust-lang.org/1.85.1/src/core/convert/mod.rs.html#799">Source</a><a href="#method.try_into" class="anchor">§</a><h4 class="code-header">fn <a href="https://doc.rust-lang.org/1.85.1/core/convert/trait.TryInto.html#tymethod.try_into" class="fn">try_into</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;U, &lt;U as <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.TryFrom.html" title="trait core::convert::TryFrom">TryFrom</a>&lt;T&gt;&gt;::<a class="associatedtype" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.TryFrom.html#associatedtype.Error" title="type core::convert::TryFrom::Error">Error</a>&gt;</h4></section></summary><div class='docblock'>Performs the conversion.</div></details></div></details><details class="toggle implementors-toggle"><summary><section id="impl-VZip%3CV%3E-for-T" class="impl"><a href="#impl-VZip%3CV%3E-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;V, T&gt; VZip&lt;V&gt; for T<div class="where">where
+    V: MultiLane&lt;T&gt;,</div></h3></section></summary><div class="impl-items"><section id="method.vzip" class="method trait-impl"><a href="#method.vzip" class="anchor">§</a><h4 class="code-header">fn <a class="fn">vzip</a>(self) -&gt; V</h4></section></div></details><details class="toggle implementors-toggle"><summary><section id="impl-WithSubscriber-for-T" class="impl"><a href="#impl-WithSubscriber-for-T" class="anchor">§</a><h3 class="code-header">impl&lt;T&gt; WithSubscriber for T</h3></section></summary><div class="impl-items"><details class="toggle method-toggle" open><summary><section id="method.with_subscriber" class="method trait-impl"><a href="#method.with_subscriber" class="anchor">§</a><h4 class="code-header">fn <a class="fn">with_subscriber</a>&lt;S&gt;(self, subscriber: S) -&gt; WithDispatch&lt;Self&gt;<div class="where">where
+    S: <a class="trait" href="https://doc.rust-lang.org/1.85.1/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;Dispatch&gt;,</div></h4></section></summary><div class='docblock'>Attaches the provided <a href="super::Subscriber"><code>Subscriber</code></a> to this type, returning a
+[<code>WithDispatch</code>] wrapper. <a>Read more</a></div></details><details class="toggle method-toggle" open><summary><section id="method.with_current_subscriber" class="method trait-impl"><a href="#method.with_current_subscriber" class="anchor">§</a><h4 class="code-header">fn <a class="fn">with_current_subscriber</a>(self) -&gt; WithDispatch&lt;Self&gt;</h4></section></summary><div class='docblock'>Attaches the current <a href="dispatcher#setting-the-default-subscriber">default</a> <a href="super::Subscriber"><code>Subscriber</code></a> to this type, returning a
+[<code>WithDispatch</code>] wrapper. <a>Read more</a></div></details></div></details></div></section></div></main></body></html>

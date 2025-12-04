@@ -2,282 +2,294 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://bitvmx.org/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/api-reference/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/api-reference/broker-api/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/api-reference/client-api/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/api-reference/coordinator-api/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/api-reference/indexer-api/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/api-reference/key-manager-api/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/api-reference/messages/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/api-reference/protocol-builder-api/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/api-reference/settings-api/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/api-reference/storage-api/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/api-reference/transaction-monitor-api/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/api-reference/wallet-api/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
+    </url>
+    <url>
+         <loc>https://bitvmx.org/cardinal/</loc>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/components/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/components/bitvmx-client/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/components/bitvmx-cpu/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/components/broker/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/components/coordinator/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/components/indexer/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/components/key-manager/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/components/protocol-builder/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/components/storage/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/components/transaction-monitor/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/components/wallet/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/components/zk-proofs/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/contributing/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/contributing/code-style/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/contributing/documentation/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/contributing/testing-guidelines/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/core-concepts/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/core-concepts/architecture/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/core-concepts/challenge-response/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/core-concepts/hash-chains/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/core-concepts/risc-v/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/core-concepts/security-model/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/core-concepts/what-is-bitvmx/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/developer-guide/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/developer-guide/api-usage/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/developer-guide/building-protocols/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/developer-guide/docker/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/developer-guide/testing/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/developer-guide/troubleshooting/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/developer-guide/workspace-setup/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
+    </url>
+    <url>
+         <loc>https://bitvmx.org/developer-guide/union-bridge/</loc>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/getting-started/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/getting-started/installation/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/getting-started/prerequisites/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/getting-started/quick-start/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
+    </url>
+    <url>
+         <loc>https://bitvmx.org/reference/</loc>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/resources/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/resources/articles/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/resources/links/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/resources/papers/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/resources/videos/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
+    </url>
+    <url>
+         <loc>https://bitvmx.org/rust-api/static.files/SourceSerif4-LICENSE-a2cfd9d5/</loc>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/technical-reference/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/technical-reference/comparison-bitvm/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/technical-reference/esspi/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/technical-reference/glossary/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/technical-reference/innovations/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/technical-reference/specifications/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/tutorials/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/tutorials/bridge-operation/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/tutorials/first-protocol/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/tutorials/payment-channels/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/tutorials/running-examples/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/union-bridge/</loc>
-         <lastmod>2025-12-01</lastmod>
-    </url>
-    <url>
-         <loc>https://bitvmx.org/union-bridge/introduction/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/union-bridge/packet-architecture/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/union-bridge/pegin-flow/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/union-bridge/pegout-flow/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/union-bridge/protocols/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
     <url>
          <loc>https://bitvmx.org/union-bridge/smart-contracts/</loc>
-         <lastmod>2025-12-01</lastmod>
+         <lastmod>2025-12-04</lastmod>
     </url>
 </urlset>

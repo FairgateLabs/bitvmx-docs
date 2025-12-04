@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["error","storage","storage_config"]};
+window.SIDEBAR_ITEMS = {"mod":["error","password_policy","storage","storage_config"]};

@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `settings` mod in crate `bitcoin_coordinator`."><title>bitcoin_coordinator::settings - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../static.files/rustdoc-46132b98.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="bitcoin_coordinator" data-themes="" data-resource-suffix="" data-rustdoc-version="1.85.1 (4eb161250 2025-03-15)" data-channel="1.85.1" data-search-js="search-75f5ac3e.js" data-settings-js="settings-0f613d39.js" ><script src="../../static.files/storage-59e33391.js"></script><script defer src="../sidebar-items.js"></script><script defer src="../../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-044be391.svg"><!-- Custom styling to integrate rustdoc with BitVMX Material theme -->
+<style>
+    :root {
+        /* Override rustdoc colors to match Material blue theme */
+        --main-background-color: #ffffff;
+        --main-color: rgba(0, 0, 0, 0.87);
+        --link-color: #1a79fe;
+        --code-highlight-kw-color: #8959a8;
+        --code-highlight-kw-2-color: #1a79fe;
+        --code-highlight-trait-color: #0066d9;
+        --code-highlight-macro-color: #3e999f;
+        --code-highlight-function-color: #1a79fe;
+        --code-highlight-string-color: #718c00;
+        --code-highlight-number-color: #1a79fe;
+        --code-highlight-bool-val-color: #0066d9;
+        --code-highlight-self-color: #0066d9;
+        --code-highlight-lifetime-color: #4a9ffe;
+        --code-highlight-prelude-ty-color: #0066d9;
+        --code-highlight-comment-color: #8e908c;
+        --sidebar-background-color: #fafafa;
+        --sidebar-background-color-hover: #e3f2fd;
+        --border-color: #e0e0e0;
+        --search-result-link-focus-background-color: #e3f2fd;
+    }
+
+    /* Dark mode support */
+    [data-theme="dark"],
+    body.dark-mode {
+        --main-background-color: #1e1e1e;
+        --main-color: rgba(255, 255, 255, 0.87);
+        --link-color: #4a9ffe;
+        --code-highlight-kw-color: #b388ff;
+        --code-highlight-kw-2-color: #4a9ffe;
+        --code-highlight-trait-color: #6ab0ff;
+        --code-highlight-macro-color: #4db6ac;
+        --code-highlight-function-color: #4a9ffe;
+        --code-highlight-string-color: #81c784;
+        --code-highlight-number-color: #4a9ffe;
+        --code-highlight-bool-val-color: #6ab0ff;
+        --code-highlight-self-color: #6ab0ff;
+        --code-highlight-lifetime-color: #4a9ffe;
+        --code-highlight-prelude-ty-color: #6ab0ff;
+        --code-highlight-comment-color: #9e9e9e;
+        --sidebar-background-color: #252525;
+        --sidebar-background-color-hover: #1a3d5f;
+        --border-color: #404040;
+        --search-result-link-focus-background-color: #1a3d5f;
+    }
+
+    /* Make links more prominent */
+    a {
+        color: var(--link-color);
+    }
+
+    a:hover {
+        color: var(--link-color);
+        text-decoration: underline;
+    }
+
+    /* Style the top navigation bar */
+    nav.sidebar {
+        border-right: 1px solid var(--border-color);
+    }
+
+    /* Improve code block styling */
+    pre.rust {
+        background-color: var(--main-background-color);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+
+    /* Enhance search results */
+    .search-results a {
+        color: var(--link-color);
+    }
+
+    .search-results a:hover,
+    .search-results a:focus {
+        background-color: var(--search-result-link-focus-background-color);
+    }
+</style>
+
+</head><body class="rustdoc mod"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../bitcoin_coordinator/index.html">bitcoin_<wbr>coordinator</a><span class="version">0.0.2</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Module settings</a></h2><h3><a href="#constants">Module Items</a></h3><ul class="block"><li><a href="#constants" title="Constants">Constants</a></li></ul></section><div id="rustdoc-modnav"><h2 class="in-crate"><a href="../index.html">In crate bitcoin_<wbr>coordinator</a></h2></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><span class="rustdoc-breadcrumbs"><a href="../index.html">bitcoin_coordinator</a></span><h1>Module <span>settings</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/bitcoin_coordinator/settings.rs.html#4-55">Source</a> </span></div><h2 id="constants" class="section-header">Constants<a href="#constants" class="anchor">§</a></h2><ul class="item-table"><li><div class="item-name"><a class="constant" href="constant.CPFP_TRANSACTION_CONTEXT.html" title="constant bitcoin_coordinator::settings::CPFP_TRANSACTION_CONTEXT">CPFP_<wbr>TRANSACTION_<wbr>CONTEXT</a></div></li><li><div class="item-name"><a class="constant" href="constant.DEFAULT_BASE_FEE_MULTIPLIER.html" title="constant bitcoin_coordinator::settings::DEFAULT_BASE_FEE_MULTIPLIER">DEFAULT_<wbr>BASE_<wbr>FEE_<wbr>MULTIPLIER</a></div></li><li><div class="item-name"><a class="constant" href="constant.DEFAULT_BUMP_FEE_PERCENTAGE.html" title="constant bitcoin_coordinator::settings::DEFAULT_BUMP_FEE_PERCENTAGE">DEFAULT_<wbr>BUMP_<wbr>FEE_<wbr>PERCENTAGE</a></div></li><li><div class="item-name"><a class="constant" href="constant.DEFAULT_MAX_FEERATE_SAT_VB.html" title="constant bitcoin_coordinator::settings::DEFAULT_MAX_FEERATE_SAT_VB">DEFAULT_<wbr>MAX_<wbr>FEERATE_<wbr>SAT_<wbr>VB</a></div></li><li><div class="item-name"><a class="constant" href="constant.DEFAULT_MAX_RBF_ATTEMPTS.html" title="constant bitcoin_coordinator::settings::DEFAULT_MAX_RBF_ATTEMPTS">DEFAULT_<wbr>MAX_<wbr>RBF_<wbr>ATTEMPTS</a></div></li><li><div class="item-name"><a class="constant" href="constant.DEFAULT_MAX_TX_WEIGHT.html" title="constant bitcoin_coordinator::settings::DEFAULT_MAX_TX_WEIGHT">DEFAULT_<wbr>MAX_<wbr>TX_<wbr>WEIGHT</a></div></li><li><div class="item-name"><a class="constant" href="constant.DEFAULT_MAX_UNCONFIRMED_SPEEDUPS.html" title="constant bitcoin_coordinator::settings::DEFAULT_MAX_UNCONFIRMED_SPEEDUPS">DEFAULT_<wbr>MAX_<wbr>UNCONFIRMED_<wbr>SPEEDUPS</a></div></li><li><div class="item-name"><a class="constant" href="constant.DEFAULT_MIN_BLOCKS_BEFORE_RESEND_SPEEDUP.html" title="constant bitcoin_coordinator::settings::DEFAULT_MIN_BLOCKS_BEFORE_RESEND_SPEEDUP">DEFAULT_<wbr>MIN_<wbr>BLOCKS_<wbr>BEFORE_<wbr>RESEND_<wbr>SPEEDUP</a></div></li><li><div class="item-name"><a class="constant" href="constant.DEFAULT_MIN_FUNDING_AMOUNT_SATS.html" title="constant bitcoin_coordinator::settings::DEFAULT_MIN_FUNDING_AMOUNT_SATS">DEFAULT_<wbr>MIN_<wbr>FUNDING_<wbr>AMOUNT_<wbr>SATS</a></div></li><li><div class="item-name"><a class="constant" href="constant.DEFAULT_MIN_NETWORK_FEE_RATE.html" title="constant bitcoin_coordinator::settings::DEFAULT_MIN_NETWORK_FEE_RATE">DEFAULT_<wbr>MIN_<wbr>NETWORK_<wbr>FEE_<wbr>RATE</a></div></li><li><div class="item-name"><a class="constant" href="constant.DEFAULT_RBF_FEE_PERCENTAGE.html" title="constant bitcoin_coordinator::settings::DEFAULT_RBF_FEE_PERCENTAGE">DEFAULT_<wbr>RBF_<wbr>FEE_<wbr>PERCENTAGE</a></div></li><li><div class="item-name"><a class="constant" href="constant.DEFAULT_RETRY_ATTEMPTS_SENDING_TX.html" title="constant bitcoin_coordinator::settings::DEFAULT_RETRY_ATTEMPTS_SENDING_TX">DEFAULT_<wbr>RETRY_<wbr>ATTEMPTS_<wbr>SENDING_<wbr>TX</a></div></li><li><div class="item-name"><a class="constant" href="constant.DEFAULT_RETRY_INTERVAL_SECONDS.html" title="constant bitcoin_coordinator::settings::DEFAULT_RETRY_INTERVAL_SECONDS">DEFAULT_<wbr>RETRY_<wbr>INTERVAL_<wbr>SECONDS</a></div></li><li><div class="item-name"><a class="constant" href="constant.FUNDING_TRANSACTION_CONTEXT.html" title="constant bitcoin_coordinator::settings::FUNDING_TRANSACTION_CONTEXT">FUNDING_<wbr>TRANSACTION_<wbr>CONTEXT</a></div></li><li><div class="item-name"><a class="constant" href="constant.MAX_LIMIT_UNCONFIRMED_PARENTS.html" title="constant bitcoin_coordinator::settings::MAX_LIMIT_UNCONFIRMED_PARENTS">MAX_<wbr>LIMIT_<wbr>UNCONFIRMED_<wbr>PARENTS</a></div></li><li><div class="item-name"><a class="constant" href="constant.MIN_UNCONFIRMED_TXS_FOR_CPFP.html" title="constant bitcoin_coordinator::settings::MIN_UNCONFIRMED_TXS_FOR_CPFP">MIN_<wbr>UNCONFIRMED_<wbr>TXS_<wbr>FOR_<wbr>CPFP</a></div></li><li><div class="item-name"><a class="constant" href="constant.RBF_TRANSACTION_CONTEXT.html" title="constant bitcoin_coordinator::settings::RBF_TRANSACTION_CONTEXT">RBF_<wbr>TRANSACTION_<wbr>CONTEXT</a></div></li></ul></section></div></main></body></html>

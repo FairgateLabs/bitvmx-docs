@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `BitcoinCoordinatorStoreApi` trait in crate `bitcoin_coordinator`."><title>BitcoinCoordinatorStoreApi in bitcoin_coordinator::storage - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../static.files/rustdoc-46132b98.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="bitcoin_coordinator" data-themes="" data-resource-suffix="" data-rustdoc-version="1.85.1 (4eb161250 2025-03-15)" data-channel="1.85.1" data-search-js="search-75f5ac3e.js" data-settings-js="settings-0f613d39.js" ><script src="../../static.files/storage-59e33391.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-044be391.svg"><!-- Custom styling to integrate rustdoc with BitVMX Material theme -->
+<style>
+    :root {
+        /* Override rustdoc colors to match Material blue theme */
+        --main-background-color: #ffffff;
+        --main-color: rgba(0, 0, 0, 0.87);
+        --link-color: #1a79fe;
+        --code-highlight-kw-color: #8959a8;
+        --code-highlight-kw-2-color: #1a79fe;
+        --code-highlight-trait-color: #0066d9;
+        --code-highlight-macro-color: #3e999f;
+        --code-highlight-function-color: #1a79fe;
+        --code-highlight-string-color: #718c00;
+        --code-highlight-number-color: #1a79fe;
+        --code-highlight-bool-val-color: #0066d9;
+        --code-highlight-self-color: #0066d9;
+        --code-highlight-lifetime-color: #4a9ffe;
+        --code-highlight-prelude-ty-color: #0066d9;
+        --code-highlight-comment-color: #8e908c;
+        --sidebar-background-color: #fafafa;
+        --sidebar-background-color-hover: #e3f2fd;
+        --border-color: #e0e0e0;
+        --search-result-link-focus-background-color: #e3f2fd;
+    }
+
+    /* Dark mode support */
+    [data-theme="dark"],
+    body.dark-mode {
+        --main-background-color: #1e1e1e;
+        --main-color: rgba(255, 255, 255, 0.87);
+        --link-color: #4a9ffe;
+        --code-highlight-kw-color: #b388ff;
+        --code-highlight-kw-2-color: #4a9ffe;
+        --code-highlight-trait-color: #6ab0ff;
+        --code-highlight-macro-color: #4db6ac;
+        --code-highlight-function-color: #4a9ffe;
+        --code-highlight-string-color: #81c784;
+        --code-highlight-number-color: #4a9ffe;
+        --code-highlight-bool-val-color: #6ab0ff;
+        --code-highlight-self-color: #6ab0ff;
+        --code-highlight-lifetime-color: #4a9ffe;
+        --code-highlight-prelude-ty-color: #6ab0ff;
+        --code-highlight-comment-color: #9e9e9e;
+        --sidebar-background-color: #252525;
+        --sidebar-background-color-hover: #1a3d5f;
+        --border-color: #404040;
+        --search-result-link-focus-background-color: #1a3d5f;
+    }
+
+    /* Make links more prominent */
+    a {
+        color: var(--link-color);
+    }
+
+    a:hover {
+        color: var(--link-color);
+        text-decoration: underline;
+    }
+
+    /* Style the top navigation bar */
+    nav.sidebar {
+        border-right: 1px solid var(--border-color);
+    }
+
+    /* Improve code block styling */
+    pre.rust {
+        background-color: var(--main-background-color);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+
+    /* Enhance search results */
+    .search-results a {
+        color: var(--link-color);
+    }
+
+    .search-results a:hover,
+    .search-results a:focus {
+        background-color: var(--search-result-link-focus-background-color);
+    }
+</style>
+
+</head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../bitcoin_coordinator/index.html">bitcoin_<wbr>coordinator</a><span class="version">0.0.2</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Bitcoin<wbr>Coordinator<wbr>Store<wbr>Api</a></h2><h3><a href="#required-methods">Required Methods</a></h3><ul class="block"><li><a href="#tymethod.ack_news" title="ack_news">ack_news</a></li><li><a href="#tymethod.get_news" title="get_news">get_news</a></li><li><a href="#tymethod.get_tx" title="get_tx">get_tx</a></li><li><a href="#tymethod.get_txs_in_progress" title="get_txs_in_progress">get_txs_in_progress</a></li><li><a href="#tymethod.get_txs_to_dispatch" title="get_txs_to_dispatch">get_txs_to_dispatch</a></li><li><a href="#tymethod.remove_tx" title="remove_tx">remove_tx</a></li><li><a href="#tymethod.save_tx" title="save_tx">save_tx</a></li><li><a href="#tymethod.update_news" title="update_news">update_news</a></li><li><a href="#tymethod.update_tx_state" title="update_tx_state">update_tx_state</a></li><li><a href="#tymethod.update_tx_to_dispatched" title="update_tx_to_dispatched">update_tx_to_dispatched</a></li></ul><h3><a href="#implementors">Implementors</a></h3></section><div id="rustdoc-modnav"><h2><a href="index.html">In bitcoin_<wbr>coordinator::<wbr>storage</a></h2></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><span class="rustdoc-breadcrumbs"><a href="../index.html">bitcoin_coordinator</a>::<wbr><a href="index.html">storage</a></span><h1>Trait <span class="trait">BitcoinCoordinatorStoreApi</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/bitcoin_coordinator/storage.rs.html#26-66">Source</a> </span></div><pre class="rust item-decl"><code>pub trait BitcoinCoordinatorStoreApi {
+    // Required methods
+    fn <a href="#tymethod.save_tx" class="fn">save_tx</a>(
+        &amp;self,
+        tx: Transaction,
+        speedup_data: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;SpeedupData&gt;,
+        target_block_height: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;BlockHeight&gt;,
+        context: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.remove_tx" class="fn">remove_tx</a>(&amp;self, tx_id: Txid) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_txs_in_progress" class="fn">get_txs_in_progress</a>(
+        &amp;self,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../types/struct.CoordinatedTransaction.html" title="struct bitcoin_coordinator::types::CoordinatedTransaction">CoordinatedTransaction</a>&gt;, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_txs_to_dispatch" class="fn">get_txs_to_dispatch</a>(
+        &amp;self,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../types/struct.CoordinatedTransaction.html" title="struct bitcoin_coordinator::types::CoordinatedTransaction">CoordinatedTransaction</a>&gt;, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_tx" class="fn">get_tx</a>(
+        &amp;self,
+        tx_id: &amp;Txid,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../types/struct.CoordinatedTransaction.html" title="struct bitcoin_coordinator::types::CoordinatedTransaction">CoordinatedTransaction</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.update_tx_state" class="fn">update_tx_state</a>(
+        &amp;self,
+        tx_id: Txid,
+        status: <a class="enum" href="../types/enum.TransactionState.html" title="enum bitcoin_coordinator::types::TransactionState">TransactionState</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.update_tx_to_dispatched" class="fn">update_tx_to_dispatched</a>(
+        &amp;self,
+        tx_id: Txid,
+        deliver_block_height: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u32.html">u32</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.update_news" class="fn">update_news</a>(
+        &amp;self,
+        news: <a class="enum" href="../types/enum.CoordinatorNews.html" title="enum bitcoin_coordinator::types::CoordinatorNews">CoordinatorNews</a>,
+        current_block_hash: BlockHash,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.ack_news" class="fn">ack_news</a>(
+        &amp;self,
+        news: <a class="enum" href="../types/enum.AckCoordinatorNews.html" title="enum bitcoin_coordinator::types::AckCoordinatorNews">AckCoordinatorNews</a>,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_news" class="fn">get_news</a>(
+        &amp;self,
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="../types/enum.CoordinatorNews.html" title="enum bitcoin_coordinator::types::CoordinatorNews">CoordinatorNews</a>&gt;, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;;
+}</code></pre><h2 id="required-methods" class="section-header">Required Methods<a href="#required-methods" class="anchor">§</a></h2><div class="methods"><section id="tymethod.save_tx" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/storage.rs.html#27-33">Source</a><h4 class="code-header">fn <a href="#tymethod.save_tx" class="fn">save_tx</a>(
+    &amp;self,
+    tx: Transaction,
+    speedup_data: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;SpeedupData&gt;,
+    target_block_height: <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;BlockHeight&gt;,
+    context: <a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;</h4></section><section id="tymethod.remove_tx" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/storage.rs.html#35">Source</a><h4 class="code-header">fn <a href="#tymethod.remove_tx" class="fn">remove_tx</a>(&amp;self, tx_id: Txid) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;</h4></section><section id="tymethod.get_txs_in_progress" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/storage.rs.html#37-39">Source</a><h4 class="code-header">fn <a href="#tymethod.get_txs_in_progress" class="fn">get_txs_in_progress</a>(
+    &amp;self,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../types/struct.CoordinatedTransaction.html" title="struct bitcoin_coordinator::types::CoordinatedTransaction">CoordinatedTransaction</a>&gt;, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;</h4></section><section id="tymethod.get_txs_to_dispatch" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/storage.rs.html#41-43">Source</a><h4 class="code-header">fn <a href="#tymethod.get_txs_to_dispatch" class="fn">get_txs_to_dispatch</a>(
+    &amp;self,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../types/struct.CoordinatedTransaction.html" title="struct bitcoin_coordinator::types::CoordinatedTransaction">CoordinatedTransaction</a>&gt;, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;</h4></section><section id="tymethod.get_tx" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/storage.rs.html#45">Source</a><h4 class="code-header">fn <a href="#tymethod.get_tx" class="fn">get_tx</a>(
+    &amp;self,
+    tx_id: &amp;Txid,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../types/struct.CoordinatedTransaction.html" title="struct bitcoin_coordinator::types::CoordinatedTransaction">CoordinatedTransaction</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;</h4></section><section id="tymethod.update_tx_state" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/storage.rs.html#47-51">Source</a><h4 class="code-header">fn <a href="#tymethod.update_tx_state" class="fn">update_tx_state</a>(
+    &amp;self,
+    tx_id: Txid,
+    status: <a class="enum" href="../types/enum.TransactionState.html" title="enum bitcoin_coordinator::types::TransactionState">TransactionState</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;</h4></section><section id="tymethod.update_tx_to_dispatched" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/storage.rs.html#53-57">Source</a><h4 class="code-header">fn <a href="#tymethod.update_tx_to_dispatched" class="fn">update_tx_to_dispatched</a>(
+    &amp;self,
+    tx_id: Txid,
+    deliver_block_height: <a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.u32.html">u32</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;</h4></section><section id="tymethod.update_news" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/storage.rs.html#59-63">Source</a><h4 class="code-header">fn <a href="#tymethod.update_news" class="fn">update_news</a>(
+    &amp;self,
+    news: <a class="enum" href="../types/enum.CoordinatorNews.html" title="enum bitcoin_coordinator::types::CoordinatorNews">CoordinatorNews</a>,
+    current_block_hash: BlockHash,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;</h4></section><section id="tymethod.ack_news" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/storage.rs.html#64">Source</a><h4 class="code-header">fn <a href="#tymethod.ack_news" class="fn">ack_news</a>(
+    &amp;self,
+    news: <a class="enum" href="../types/enum.AckCoordinatorNews.html" title="enum bitcoin_coordinator::types::AckCoordinatorNews">AckCoordinatorNews</a>,
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.85.1/std/primitive.unit.html">()</a>, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;</h4></section><section id="tymethod.get_news" class="method"><a class="src rightside" href="../../src/bitcoin_coordinator/storage.rs.html#65">Source</a><h4 class="code-header">fn <a href="#tymethod.get_news" class="fn">get_news</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.85.1/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.85.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="../types/enum.CoordinatorNews.html" title="enum bitcoin_coordinator::types::CoordinatorNews">CoordinatorNews</a>&gt;, <a class="enum" href="../errors/enum.BitcoinCoordinatorStoreError.html" title="enum bitcoin_coordinator::errors::BitcoinCoordinatorStoreError">BitcoinCoordinatorStoreError</a>&gt;</h4></section></div><h2 id="implementors" class="section-header">Implementors<a href="#implementors" class="anchor">§</a></h2><div id="implementors-list"><section id="impl-BitcoinCoordinatorStoreApi-for-BitcoinCoordinatorStore" class="impl"><a class="src rightside" href="../../src/bitcoin_coordinator/storage.rs.html#112-564">Source</a><a href="#impl-BitcoinCoordinatorStoreApi-for-BitcoinCoordinatorStore" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.BitcoinCoordinatorStoreApi.html" title="trait bitcoin_coordinator::storage::BitcoinCoordinatorStoreApi">BitcoinCoordinatorStoreApi</a> for <a class="struct" href="struct.BitcoinCoordinatorStore.html" title="struct bitcoin_coordinator::storage::BitcoinCoordinatorStore">BitcoinCoordinatorStore</a></h3></section></div><script src="../../trait.impl/bitcoin_coordinator/storage/trait.BitcoinCoordinatorStoreApi.js" async></script></section></div></main></body></html>

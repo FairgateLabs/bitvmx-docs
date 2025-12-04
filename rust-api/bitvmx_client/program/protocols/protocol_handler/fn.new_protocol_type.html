@@ -1,26 +1,26 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `new_protocol_type` fn in crate `bitvmx_client`."><title>new_protocol_type in bitvmx_client::program::protocols::protocol_handler - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-46132b98.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="bitvmx_client" data-themes="" data-resource-suffix="" data-rustdoc-version="1.85.1 (4eb161250 2025-03-15)" data-channel="1.85.1" data-search-js="search-75f5ac3e.js" data-settings-js="settings-0f613d39.js" ><script src="../../../../static.files/storage-59e33391.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../../../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-044be391.svg"><!-- Custom styling to integrate rustdoc with BitVMX Material theme -->
 <style>
     :root {
-        /* Override rustdoc colors to match Material orange theme */
+        /* Override rustdoc colors to match Material blue theme */
         --main-background-color: #ffffff;
         --main-color: rgba(0, 0, 0, 0.87);
-        --link-color: #ff6f00;
+        --link-color: #1a79fe;
         --code-highlight-kw-color: #8959a8;
-        --code-highlight-kw-2-color: #4271ae;
-        --code-highlight-trait-color: #c97500;
+        --code-highlight-kw-2-color: #1a79fe;
+        --code-highlight-trait-color: #0066d9;
         --code-highlight-macro-color: #3e999f;
-        --code-highlight-function-color: #4271ae;
+        --code-highlight-function-color: #1a79fe;
         --code-highlight-string-color: #718c00;
-        --code-highlight-number-color: #ff6f00;
-        --code-highlight-bool-val-color: #c97500;
-        --code-highlight-self-color: #c97500;
-        --code-highlight-lifetime-color: #f5871f;
-        --code-highlight-prelude-ty-color: #c97500;
+        --code-highlight-number-color: #1a79fe;
+        --code-highlight-bool-val-color: #0066d9;
+        --code-highlight-self-color: #0066d9;
+        --code-highlight-lifetime-color: #4a9ffe;
+        --code-highlight-prelude-ty-color: #0066d9;
         --code-highlight-comment-color: #8e908c;
         --sidebar-background-color: #fafafa;
-        --sidebar-background-color-hover: #ffe0b2;
+        --sidebar-background-color-hover: #e3f2fd;
         --border-color: #e0e0e0;
-        --search-result-link-focus-background-color: #fff3e0;
+        --search-result-link-focus-background-color: #e3f2fd;
     }
 
     /* Dark mode support */
@@ -28,26 +28,26 @@
     body.dark-mode {
         --main-background-color: #1e1e1e;
         --main-color: rgba(255, 255, 255, 0.87);
-        --link-color: #ff8f00;
+        --link-color: #4a9ffe;
         --code-highlight-kw-color: #b388ff;
-        --code-highlight-kw-2-color: #9fa8da;
-        --code-highlight-trait-color: #ffab40;
+        --code-highlight-kw-2-color: #4a9ffe;
+        --code-highlight-trait-color: #6ab0ff;
         --code-highlight-macro-color: #4db6ac;
-        --code-highlight-function-color: #9fa8da;
+        --code-highlight-function-color: #4a9ffe;
         --code-highlight-string-color: #81c784;
-        --code-highlight-number-color: #ff8f00;
-        --code-highlight-bool-val-color: #ffab40;
-        --code-highlight-self-color: #ffab40;
-        --code-highlight-lifetime-color: #ff8f00;
-        --code-highlight-prelude-ty-color: #ffab40;
+        --code-highlight-number-color: #4a9ffe;
+        --code-highlight-bool-val-color: #6ab0ff;
+        --code-highlight-self-color: #6ab0ff;
+        --code-highlight-lifetime-color: #4a9ffe;
+        --code-highlight-prelude-ty-color: #6ab0ff;
         --code-highlight-comment-color: #9e9e9e;
         --sidebar-background-color: #252525;
-        --sidebar-background-color-hover: #3d2800;
+        --sidebar-background-color-hover: #1a3d5f;
         --border-color: #404040;
-        --search-result-link-focus-background-color: #3d2800;
+        --search-result-link-focus-background-color: #1a3d5f;
     }
 
-    /* Make links more prominent with BitVMX orange */
+    /* Make links more prominent */
     a {
         color: var(--link-color);
     }

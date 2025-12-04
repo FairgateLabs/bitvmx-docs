@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["AckCoordinatorNews","AckNews","CoordinatorNews","SpeedupState","TransactionState"],"struct":["CoordinatedSpeedUpTransaction","CoordinatedTransaction","News","RetryInfo","TransactionFullInfo","TransactionNew"],"type":["FullBlock","TransactionNewsType"]};
